@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="water" src="./pic/download (1).jpg">
+            <img id="g" src="./pic/1200px-Flag_of_France.svg.png">
+            <img id="snow" src="./pic/download.jpg">
+            <img id="grid" src="./pic/images.jpg">
+        </a-assets>
+        <a-entity camera look-controls wasd-controls="acceleration:100" position="0 1.6 0"></a-entity>
+
+        <a-sky color="#0a273e"></a-sky>
+
+        <!--   หิมะ -->
+        <a-entity particle-system="preset: snow; color: #d6d7db; particleCount: 5000"></a-entity>
+
+        <!--   พื้น -->
+        <a-plane position="0 -5.1 -30" src="#snow" color="#d6d7db" width="80" height="60" rotation="-90 0 0"></a-plane>
+
+        <!--ตึกซ้าย-->
+        <a-box position="-26 2 -34" color="#c2a98a" scale="16 16 36">
+            <a-box position="0 -0.1 0" color="#a08864" scale="1.1 0.07 1.1"></a-box>
+            <a-box position="0 0.25 0" color="#a08864" scale="1.1 0.07 1.1"></a-box>
+        </a-box>
+        <!-- ส่วนยื่นขึ้น -->
+        <a-box position="-31 9 -19" color="#c2a98a" scale="6 6 6"></a-box> //ตึกบน
+        <a-box position="-31 12 -19" color="#c2a98a" scale="7 1 7"></a-box> //ขอบบน
+        <a-box position="-31 13.5 -20" scale="3 2 6" color="#4e567a"></a-box>
+        <a-triangle vertex-a="-0.5 1.6 0" vertex-c="1 -0.5 0" position="-29 13 -17.01" color="#4e567a"></a-triangle>
+        <a-triangle vertex-a="0.5 1.6 0" vertex-b="-1 -0.5 0" position="-33 13 -17.01" color="#4e567a"></a-triangle>
+        <!-- ส่วนยื่นขึ้นขวา -->
+        <a-box position="-21 9 -19" color="#c2a98a" scale="6 6 6"></a-box> //ตึกบน
+        <a-box position="-21 12 -19" color="#c2a98a" scale="7 1 7"></a-box> //ขอบบน
+        <a-box position="-21 13.5 -20" scale="3 2 6" color="#4e567a"></a-box>
+        <a-triangle vertex-a="-0.5 1.6 0" vertex-c="1 -0.5 0" position="-19 13 -17.01" color="#4e567a"></a-triangle>
+        <a-box position="-19.7 13 -17.1" color="#c2a98a" scale="0.5 1 0.5"></a-box>
+        <a-triangle vertex-a="0.5 1.6 0" vertex-b="-1 -0.5 0" position="-23 13 -17.01" color="#4e567a"></a-triangle>
+        <a-box position="-21 15 -19" scale="2 0.8 2" color="#a5b2bb"></a-box>
+        <!-- หน้าต่างชั้นหนึ่ง -->
+        <a-box position="-32 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-30 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-28 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-26 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-24 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-22 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-20 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!-- หน้าต่างชั้นสอง -->
+        <a-box position="-32 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-30 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-28 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-26 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-24 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-22 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-20 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!-- หน้าต่างชั้นสาม -->
+        <a-box position="-32 8 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-30 8 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-28 8 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-26 8 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-24 8 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-22 8 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-20 8 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <!-- หน้าต่างชั้นลอย -->
+        <a-box position="-33 10.5 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-31 10.5 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-29 10.5 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-23 10.5 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-21 10.5 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-19 10.5 -16.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <!-- หน้าต่างชั้นหนึ่งด้านใน -->
+        <a-box position="-18.3 -2 -18.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -20.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -22.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -24.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -26.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -28.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -30.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -32.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -34.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -36.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -38.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -40.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -42.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 -2 -44.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!-- หน้าต่างชั้นสองด้านใน -->
+        <a-box position="-18.3 3 -18.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -20.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -22.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -24.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -26.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -28.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -30.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -32.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -34.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -36.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -38.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -40.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -42.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-18.3 3 -44.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!-- หน้าต่างชั้นสามด้านใน -->
+        <a-box position="-18.3 8 -18.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -20.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -22.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -24.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -26.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -28.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -30.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -32.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -34.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -36.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -38.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -40.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -42.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 8 -44.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <!-- หน้าต่างชั้นลอยด้านใน -->
+        <a-box position="-18.3 10.5 -18.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 10.5 -20.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 12 -38.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 12 -40.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 12 -42.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="-18.3 12 -44.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <!-- หน้าต่างชั้นหนึ่งด้านใน -->
+        <a-box position="-33.8 -2 -18.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -20.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -22.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -24.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -26.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -28.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -30.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -32.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -34.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -36.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -38.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -40.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -42.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -44.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -46.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -48.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 -2 -50.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!-- หน้าต่างชั้นสองด้านใน -->
+        <a-box position="-33.8 3 -18.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -20.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -22.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -24.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -26.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -28.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -30.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -32.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -34.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -36.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -38.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -40.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -42.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -44.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -46.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -48.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="-33.8 3 -50.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!-- หน้าต่างชั้นสามด้านใน -->
+        <a-box position="-33.8 8 -18.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -20.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -22.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -24.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -26.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -28.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -30.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -32.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -34.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -36.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -38.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -40.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -42.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -44.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -46.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -48.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 8 -50.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <!-- หน้าต่างชั้นลอยด้านนอก -->
+        <a-box position="-33.8 10.5 -18.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 10.5 -20.2" scale="1 1 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 12 -38.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 12 -40.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 12 -42.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="-33.8 12 -44.2" scale="1 3 1" color="#a8a3ac"></a-box>
+        <!--หลังคาหลัง-->
+        <a-box position="-26 12 -41" color="#c2a98a" scale="16 5 10"></a-box>
+        <a-box position="-26 15 -40.5" color="#4e567a" scale="15 2 8" rotation="-10"></a-box>
+        <!--หลังคาข้าง-->
+        <a-box position="-33.5 10.5 -28" color="#4e567a" scale="0.3 1.8 15.8" rotation="0 0 -20"></a-box>
+        <a-box position="-18.3 10.5 -29" color="#4e567a" scale="0.3 1.8 14" rotation="0 0 20"></a-box>
+        <!-- หลังคาหน้า -->
+        <a-box position="-26 10.5 -16.9" color="#4e567a" scale="4 0.5 2" rotation="45 0 0"></a-box>
+
+        <!--ตึกขวา-->
+
+        <a-box position="26 2 -34" color="#c2a98a" scale="16 16 36">
+            <a-box position="0 -0.1 0" color="#a08864" scale="1.1 0.07 1.1"></a-box>
+            <a-box position="0 0.25 0" color="#a08864" scale="1.1 0.07 1.1"></a-box>
+        </a-box>
+        <a-box position="21 9 -19" color="#c2a98a" scale="6 6 6"></a-box> //ตึกบน
+        <a-box position="21 12 -19" color="#c2a98a" scale="7 1 7"></a-box> //ขอบบน
+        <a-box position="26 12 -47" color="#c2a98a" scale="16 5 10"></a-box>//ตึกบนหลัง
+        <a-box position="21 14.5 -17" color="#c2a98a" scale="2 1 1"></a-box> //บนสุด
+        <a-box position="20 13 -16" color="#c2a98a" scale="0.5 1 0.5"></a-box> //mini
+
+        <!--หลังคาหน้า-->
+        <a-box position="21 13.2 -19" scale="3 2 6" color="#4e567a"></a-box>
+        <a-triangle vertex-a="-0.5 1.6 0" vertex-c="1 -0.5 0" position="23 12.5 -16" color="#4e567a"></a-triangle>
+        <a-triangle vertex-a="0.5 1.6 0" vertex-b="-1 -0.5 0" position="19 12.5 -16" color="#4e567a"></a-triangle>
+
+        <a-box position="28 10.5 -17" color="#4e567a" scale="7.5 0.5 2" rotation="45 0 0"></a-box>
+
+        <!--หลังคาหลัง-->
+        <a-box position="26 14.5 -46.5" color="#4e567a" scale="15 2 8" rotation="-10"></a-box>
+        <!--หลังคาข้าง-->
+        <a-box position="31.4 10.5 -25.1" color="#4e567a" scale="0.3 1.8 18" rotation="0 0 -22"></a-box>
+        <a-box position="32 10.5 -25.1" color="#4e567a" scale="0.3 1.8 18" rotation="0 0 20"></a-box>
+
+        <a-triangle vertex-a="0.5 1.6 0" vertex-c="1 -0.5 0" position="31.3 9.7 -16" color="#c2a98a"></a-triangle>
+        <a-triangle vertex-a="-0.5 1.6 0" vertex-c="1 -0.5 0" position="32.3 9.7 -16" color="#c2a98a"></a-triangle>
+
+        <a-box position="19.3 11 -32" color="#4e567a" scale="3 0.5 18" rotation="0 0 45"></a-box>
+
+        <!--หน้าต่างชั้น1-->
+        <a-box position="20 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="22 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="24 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="26 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="28 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="30 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="32 -2 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!--หน้าต่างชั้น2-->
+        <a-box position="20 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="22 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="24 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="26 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="28 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="30 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="32 3 -16.2" scale="1 3 1" color="#fb9c3d"></a-box>
+        <!--หน้าต่างชั้น3-->
+        <a-box position="19 10 -16.2" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="21 10 -16.2" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="23 10 -16.2" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-circle position="19 7.5 -15.9" radius="0.7" color="#a8a3ac"></a-circle>
+        <a-circle position="21 7.5 -15.9" radius="0.7" color="#a8a3ac"></a-circle>
+        <a-circle position="23 7.5 -15.9" radius="0.7" color="#a8a3ac"></a-circle>
+        <a-circle position="26 8 -15.5" radius="0.8" color="#a8a3ac"></a-circle>
+        <a-circle position="28 8 -15.5" radius="0.8" color="#a8a3ac"></a-circle>
+        <a-circle position="30 8 -15.5" radius="0.8" color="#a8a3ac"></a-circle>
+        <a-circle position="32 8 -15.5" radius="0.8" color="#a8a3ac"></a-circle>
+
+        <!--หน้าต่างข้างซ้ายชั้น1-->
+        <a-box position="18.3 -2 -51" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -49" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -47" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -45" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -43" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -41" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -39" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -37" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -35" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -33" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -31" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -29" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -27" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -25" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -23" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -21" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -19" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 -2 -17" scale="1 3 1" color="#fb9c3d"></a-box>
+
+        <!--หน้าต่างข้างซ้ายชั้น2-->
+        <a-box position="18.3 3 -51" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -49" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -47" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -45" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -43" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -41" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -39" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -37" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -35" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -33" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -31" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -29" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -27" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -25" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -23" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -21" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -19" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="18.3 3 -17" scale="1 3 1" color="#fb9c3d"></a-box>
+
+        <!--หน้าต่างข้างซ้ายชั้น3-->
+        <a-box position="18.3 7.5 -51" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -49" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -47" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -45" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -43" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -41" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -39" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -37" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -35" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -33" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -31" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -29" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -27" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -25" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -23" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -21" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -19" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 7.5 -17" scale="1 2 1" color="#a8a3ac"></a-box>
+
+        <a-box position="18.3 12 -51" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 12 -49" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 12 -45" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 12 -43" scale="1 3 1" color="#a8a3ac"></a-box>
+
+        <a-box position="18.3 10 -17" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 10 -19" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="18.3 10 -21" scale="1 2 1" color="#a8a3ac"></a-box>
+
+        <!--หน้าต่างข้างขวาชั้น1-->
+        <a-box position="33.8 -2 -51" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -49" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -47" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -45" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -43" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -41" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -39" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -37" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -35" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -33" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -31" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -29" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -27" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -25" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -23" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -21" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -19" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 -2 -17" scale="1 3 1" color="#fb9c3d"></a-box>
+
+        <!--หน้าต่างข้างขวาชั้น2-->
+        <a-box position="33.8 3 -51" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -49" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -47" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -45" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -43" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -41" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -39" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -37" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -35" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -33" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -31" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -29" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -27" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -25" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -23" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -21" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -19" scale="1 3 1" color="#fb9c3d"></a-box>
+        <a-box position="33.8 3 -17" scale="1 3 1" color="#fb9c3d"></a-box>
+
+        <!--หน้าต่างข้างขวาชั้น3-->
+        <a-box position="33.8 7.5 -51" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -49" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -47" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -45" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -43" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -41" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -39" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -37" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -35" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -33" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -31" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -29" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -27" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -25" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -23" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -21" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -19" scale="1 2 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 7.5 -17" scale="1 2 1" color="#a8a3ac"></a-box>
+
+        <a-box position="33.8 12 -51" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 12 -49" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 12 -47" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 12 -45" scale="1 3 1" color="#a8a3ac"></a-box>
+        <a-box position="33.8 12 -43" scale="1 3 1" color="#a8a3ac"></a-box>
+
+        <!--ตึกหลัง-->
+        <a-cylinder color="#af8b6b" height="16" radius="0.4" position="6 1.6 -41.9"></a-cylinder>
+        <a-cylinder color="#af8b6b" height="16" radius="0.4" position="-6 1.6 -41.9"></a-cylinder>
+        <a-cylinder color="#af8b6b" height="16" radius="0.4" position="-3 1.6 -41.9"></a-cylinder>
+        <a-cylinder color="#af8b6b" height="16" radius="0.4" position="3 1.6 -41.9"></a-cylinder>
+        <!--หลังคา-->
+        <a-triangle vertex-a="0 2.5 0" vertex-c="5 0 0" vertex-b="-5 0 0" position="0 14 -41.9" color="#c2a98a">
+        </a-triangle>
+
+        <a-plane position="0 15.5 -42" color="#4e567a" width="5" height="3.5"></a-plane>
+        <a-triangle vertex-a="0.5 3 0" vertex-b="-2 -0.5 0" position="-3 14.2 -42" color="#4e567a"></a-triangle>
+        <a-triangle vertex-a="-0.5 3 0" vertex-c="2 -0.5 0" position="3 14.2 -42" color="#4e567a"></a-triangle>
+
+        <a-plane position="0 15.5 -56" color="#4e567a" width="5" height="3.5"></a-plane>
+        <a-triangle vertex-a="0.5 3 0" vertex-b="-2 -0.5 0" position="-3 14.2 -56" color="#4e567a"></a-triangle>
+        <a-triangle vertex-a="-0.5 3 0" vertex-c="2 -0.5 0" position="3 14.2 -56" color="#4e567a"></a-triangle>
+        <a-box position="0 15.45 -49" color="#4e567a" scale="5 3.5 14">
+        </a-box>
+        <!--ปิดหลังคา-->
+
+        <a-box position="0 12 -49" color="#c2a98a" scale="10 3.5 14">
+            <a-box position="0 1.5 0" color="#a5b2bb" scale="0.4 1 0.8"> </a-box>
+            <!--flag-->
+            <a-box position="0 3 0" color="#a5b2bb" scale="0.01 2 0.01">
+            </a-box>
+            <a-box position="0.17 3.7 0" color="#a5b2bb" src="#g" scale="0.3 0.5 0.01">
+            </a-box>
+            <a-box position="0 0.5 0.05" color="#c2a98a" scale="1.1 0.2 1"> </a-box>
+
+            <!--หน้าต่างชั้นลอย-->
+            <a-box position="0.3 0 0.02" color="#a8a3ac" scale="0.2 0.7">
+            </a-box>
+            <a-box position="0.0 0 0.02" color="#a8a3ac" scale="0.2 0.7">
+            </a-box>
+            <a-box position="-0.3 0 0.02" color="#a8a3ac" scale="0.2 0.7">
+            </a-box>
+            <!--หน้าต่างกลางชั้น3-->
+            <a-box position="0.46 -1.1 0" color="#a8a3ac" scale="0.15 0.6 0.9">
+            </a-box>
+            <a-box position="0 -1.1 0" color="#a8a3ac" scale="0.3 0.8 0.9">
+            </a-box>
+            <a-box position="-0.46 -1.1 0" color="#a8a3ac" scale="0.15 0.6 0.9">
+            </a-box>
+
+            <!--หน้าต่างกลางชั้น1-->
+            <a-box position="0.46 -4.3 0" color="#fb9c3d" scale="0.15 1 0.9">
+                <a-circle color="#fb9c3d" position="0 0.25 0.5" geometry="primitive: circle; radius: 0.5"></a-circle>
+            </a-box>
+            <a-box position="0 -4.3 0" color="#fb9c3d" scale="0.3 1 0.9">
+                <a-circle color="#fb9c3d" position="0 0.3 0.5" geometry="primitive: circle; radius: 0.5"></a-circle>
+            </a-box>
+            <a-box position="-0.46 -4.3 0" color="#fb9c3d" scale="0.15 1 0.9">
+                <a-circle color="#fb9c3d" position="0 0.25 0.5" geometry="primitive: circle; radius: 0.5"></a-circle>
+            </a-box>
+
+            <!--หน้าต่างกลางชั้น2-->
+            <a-box position="0.46 -2.5 0" color="#fb9c3d" scale="0.15 0.9 0.9">
+                <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="0 0.5 0.5"
+                    color="#fb9c3d">
+                </a-triangle>
+            </a-box>
+            <a-box position="0 -2.65 0" color="#fb9c3d" scale="0.3 1 0.9">
+                <a-triangle vertex-a="0 0.3 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="0 0.5 0.5"
+                    color="#fb9c3d">
+                </a-triangle>
+            </a-box>
+            <a-box position="-0.46 -2.5 0" color="#fb9c3d" scale="0.15 0.9 0.9">
+                <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="0 0.5 0.5"
+                    color="#fb9c3d">
+                </a-triangle>
+            </a-box>
+        </a-box>
+
+        </a-box>
+        </a-box>
+        <a-box position="0 2 -51" color="#c2a98a" scale="43 16 10">
+
+            <!--รั้ว-->
+            <a-box position="0.2 0.55 0.5" color="#a08864" scale="0.01 0.1 0.01">
+                <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                    <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                        <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                            <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                    <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                        <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                            <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                                <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                                    <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                                        <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                                            <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                                                <a-box position="1.3 0 0" color="#a08864" scale="1 1 1">
+                                                                    <a-box position="1.3 0 0" color="#a08864"
+                                                                        scale="1 1 1">
+                                                                        <a-box position="1.3 0 0" color="#a08864"
+                                                                            scale="1 1 1">
+                                                                            <a-box position="1.3 0 0" color="#a08864"
+                                                                                scale="1 1 1">
+                                                                                <a-box position="1.3 0 0"
+                                                                                    color="#a08864" scale="1 1 1">
+                                                                                    <a-box position="1.3 0 0"
+                                                                                        color="#a08864" scale="1 1 1">
+                                                                                        <a-box position="1.3 0 0"
+                                                                                            color="#a08864"
+                                                                                            scale="1 1 1">
+                                                                                            <a-box position="1.3 0 0"
+                                                                                                color="#a08864"
+                                                                                                scale="1 1 1">
+                                                                                                <a-box
+                                                                                                    position="1.3 0 0"
+                                                                                                    color="#a08864"
+                                                                                                    scale="1 1 1">
+                                                                                                    <a-box
+                                                                                                        position="1.3 0 0"
+                                                                                                        color="#a08864"
+                                                                                                        scale="1 1 1">
+                                                                                                        <a-box
+                                                                                                            position="1.3 0 0"
+                                                                                                            color="#a08864"
+                                                                                                            scale="1 1 1">
+                                                                                                            <a-box
+                                                                                                                position="1.3 0 0"
+                                                                                                                color="#a08864"
+                                                                                                                scale="1 1 1">
+                                                                                                            </a-box>
+                                                                                                        </a-box>
+                                                                                                    </a-box>
+                                                                                                </a-box>
+                                                                                            </a-box>
+                                                                                        </a-box>
+                                                                                    </a-box>
+                                                                                </a-box>
+                                                                            </a-box>
+                                                                        </a-box>
+                                                                    </a-box>
+                                                                </a-box>
+                                                            </a-box>
+                                                        </a-box>
+                                                    </a-box>
+                                                </a-box>
+                                            </a-box>
+                                        </a-box>
+                                    </a-box>
+                                </a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+                <a-box position="-1.4 0 0" color="#a08864" scale="1 1 1">
+                    <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                        <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                            <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                    <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                        <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                            <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                                <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                                    <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                                        <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                                            <a-box position="-1.3 0 0" color="#a08864" scale="1 1 1">
+                                                                <a-box position="-1.3 0 0" color="#a08864"
+                                                                    scale="1 1 1">
+                                                                    <a-box position="-1.3 0 0" color="#a08864"
+                                                                        scale="1 1 1">
+                                                                        <a-box position="-1.3 0 0" color="#a08864"
+                                                                            scale="1 1 1">
+                                                                            <a-box position="-1.3 0 0" color="#a08864"
+                                                                                scale="1 1 1">
+                                                                                <a-box position="-1.3 0 0"
+                                                                                    color="#a08864" scale="1 1 1">
+                                                                                    <a-box position="-1.3 0 0"
+                                                                                        color="#a08864" scale="1 1 1">
+                                                                                        <a-box position="-1.3 0 0"
+                                                                                            color="#a08864"
+                                                                                            scale="1 1 1">
+                                                                                            <a-box position="-1.3 0 0"
+                                                                                                color="#a08864"
+                                                                                                scale="1 1 1">
+                                                                                                <a-box
+                                                                                                    position="-1.3 0 0"
+                                                                                                    color="#a08864"
+                                                                                                    scale="1 1 1">
+                                                                                                    <a-box
+                                                                                                        position="-1.3 0 0"
+                                                                                                        color="#a08864"
+                                                                                                        scale="1 1 1">
+                                                                                                        <a-box
+                                                                                                            position="-1.3 0 0"
+                                                                                                            color="#a08864"
+                                                                                                            scale="1 1 1">
+                                                                                                            <a-box
+                                                                                                                position="-1.3 0 0"
+                                                                                                                color="#a08864"
+                                                                                                                scale="1 1 1">
+                                                                                                                <a-box
+                                                                                                                    position="-1.3 0 0"
+                                                                                                                    color="#a08864"
+                                                                                                                    scale="1 1 1">
+                                                                                                                    <a-box
+                                                                                                                        position="-1.3 0 0"
+                                                                                                                        color="#a08864"
+                                                                                                                        scale="1 1 1">
+                                                                                                                        <a-box
+                                                                                                                            position="-1.3 0 0"
+                                                                                                                            color="#a08864"
+                                                                                                                            scale="1 1 1">
+                                                                                                                            <a-box
+                                                                                                                                position="-1.3 0 0"
+                                                                                                                                color="#a08864"
+                                                                                                                                scale="1 1 1">
+                                                                                                                                <a-box
+                                                                                                                                    position="-1.3 0 0"
+                                                                                                                                    color="#a08864"
+                                                                                                                                    scale="1 1 1">
+                                                                                                                                    <a-box
+                                                                                                                                        position="-1.3 0 0"
+                                                                                                                                        color="#a08864"
+                                                                                                                                        scale="1 1 1">
+                                                                                                                                        <a-box
+                                                                                                                                            position="-1.3 0 0"
+                                                                                                                                            color="#a08864"
+                                                                                                                                            scale="1 1 1">
+                                                                                                                                            <a-box
+                                                                                                                                                position="-1.3 0 0"
+                                                                                                                                                color="#a08864"
+                                                                                                                                                scale="1 1 1">
+                                                                                                                                                <a-box
+                                                                                                                                                    position="-1.3 0 0"
+                                                                                                                                                    color="#a08864"
+                                                                                                                                                    scale="1 1 1">
+                                                                                                                                                    <a-box
+                                                                                                                                                        position="-1.3 0 0"
+                                                                                                                                                        color="#a08864"
+                                                                                                                                                        scale="1 1 1">
+                                                                                                                                                        <a-box
+                                                                                                                                                            position="-1.3 0 0"
+                                                                                                                                                            color="#a08864"
+                                                                                                                                                            scale="1 1 1">
+                                                                                                                                                            <a-box
+                                                                                                                                                                position="-1.3 0 0"
+                                                                                                                                                                color="#a08864"
+                                                                                                                                                                scale="1 1 1">
+                                                                                                                                                                <a-box
+                                                                                                                                                                    position="-1.3 0 0"
+                                                                                                                                                                    color="#a08864"
+                                                                                                                                                                    scale="1 1 1">
+                                                                                                                                                                    <a-box
+                                                                                                                                                                        position="-1.3 0 0"
+                                                                                                                                                                        color="#a08864"
+                                                                                                                                                                        scale="1 1 1">
+                                                                                                                                                                        <a-box
+                                                                                                                                                                            position="-1.3 0 0"
+                                                                                                                                                                            color="#a08864"
+                                                                                                                                                                            scale="1 1 1">
+                                                                                                                                                                            <a-box
+                                                                                                                                                                                position="-1.3 0 0"
+                                                                                                                                                                                color="#a08864"
+                                                                                                                                                                                scale="1 1 1">
+                                                                                                                                                                                <a-box
+                                                                                                                                                                                    position="-1.3 0 0"
+                                                                                                                                                                                    color="#a08864"
+                                                                                                                                                                                    scale="1 1 1">
+                                                                                                                                                                                    <a-box
+                                                                                                                                                                                        position="-1.3 0 0"
+                                                                                                                                                                                        color="#a08864"
+                                                                                                                                                                                        scale="1 1 1">
+                                                                                                                                                                                        <a-box
+                                                                                                                                                                                            position="-1.3 0 0"
+                                                                                                                                                                                            color="#a08864"
+                                                                                                                                                                                            scale="1 1 1">
+                                                                                                                                                                                            <a-box
+                                                                                                                                                                                                position="-1.3 0 0"
+                                                                                                                                                                                                color="#a08864"
+                                                                                                                                                                                                scale="1 1 1">
+                                                                                                                                                                                                <a-box
+                                                                                                                                                                                                    position="-1.3 0 0"
+                                                                                                                                                                                                    color="#a08864"
+                                                                                                                                                                                                    scale="1 1 1">
+                                                                                                                                                                                                    <a-box
+                                                                                                                                                                                                        position="-1.3 0 0"
+                                                                                                                                                                                                        color="#a08864"
+                                                                                                                                                                                                        scale="1 1 1">
+                                                                                                                                                                                                        <a-box
+                                                                                                                                                                                                            position="-1.3 0 0"
+                                                                                                                                                                                                            color="#a08864"
+                                                                                                                                                                                                            scale="1 1 1">
+                                                                                                                                                                                                            <a-box
+                                                                                                                                                                                                                position="-1.3 0 0"
+                                                                                                                                                                                                                color="#a08864"
+                                                                                                                                                                                                                scale="1 1 1">
+                                                                                                                                                                                                                <a-box
+                                                                                                                                                                                                                    position="-1.3 0 0"
+                                                                                                                                                                                                                    color="#a08864"
+                                                                                                                                                                                                                    scale="1 1 1">
+                                                                                                                                                                                                                    <a-box
+                                                                                                                                                                                                                        position="-1.3 0 0"
+                                                                                                                                                                                                                        color="#a08864"
+                                                                                                                                                                                                                        scale="1 1 1">
+                                                                                                                                                                                                                        <a-box
+                                                                                                                                                                                                                            position="-1.3 0 0"
+                                                                                                                                                                                                                            color="#a08864"
+                                                                                                                                                                                                                            scale="1 1 1">
+                                                                                                                                                                                                                            <a-box
+                                                                                                                                                                                                                                position="-1.3 0 0"
+                                                                                                                                                                                                                                color="#a08864"
+                                                                                                                                                                                                                                scale="1 1 1">
+                                                                                                                                                                                                                                <a-box
+                                                                                                                                                                                                                                    position="-1.3 0 0"
+                                                                                                                                                                                                                                    color="#a08864"
+                                                                                                                                                                                                                                    scale="1 1 1">
+                                                                                                                                                                                                                                    <a-box
+                                                                                                                                                                                                                                        position="-1.3 0 0"
+                                                                                                                                                                                                                                        color="#a08864"
+                                                                                                                                                                                                                                        scale="1 1 1">
+
+                                                                                                                                                                                                                                    </a-box>
+                                                                                                                                                                                                                                </a-box>
+                                                                                                                                                                                                                            </a-box>
+                                                                                                                                                                                                                        </a-box>
+                                                                                                                                                                                                                    </a-box>
+                                                                                                                                                                                                                </a-box>
+                                                                                                                                                                                                            </a-box>
+                                                                                                                                                                                                        </a-box>
+                                                                                                                                                                                                    </a-box>
+                                                                                                                                                                                                </a-box>
+                                                                                                                                                                                            </a-box>
+                                                                                                                                                                                        </a-box>
+                                                                                                                                                                                    </a-box>
+                                                                                                                                                                                </a-box>
+                                                                                                                                                                            </a-box>
+                                                                                                                                                                        </a-box>
+                                                                                                                                                                    </a-box>
+                                                                                                                                                                </a-box>
+                                                                                                                                                            </a-box>
+                                                                                                                                                        </a-box>
+                                                                                                                                                    </a-box>
+                                                                                                                                                </a-box>
+                                                                                                                                            </a-box>
+                                                                                                                                        </a-box>
+                                                                                                                                    </a-box>
+                                                                                                                                </a-box>
+                                                                                                                            </a-box>
+                                                                                                                        </a-box>
+                                                                                                                    </a-box>
+                                                                                                                </a-box>
+                                                                                                            </a-box>
+                                                                                                        </a-box>
+                                                                                                    </a-box>
+                                                                                                </a-box>
+                                                                                            </a-box>
+                                                                                        </a-box>
+                                                                                    </a-box>
+                                                                                </a-box>
+                                                                            </a-box>
+                                                                        </a-box>
+                                                                    </a-box>
+                                                                </a-box>
+                                                            </a-box>
+                                                        </a-box>
+                                                    </a-box>
+                                                </a-box>
+                                            </a-box>
+                                        </a-box>
+                                    </a-box>
+                                </a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+            </a-box>
+            <!--รั้ว-->
+
+            <!--หน้าต่างชั้น3-->
+            <a-box position="0.2 0.4 0.03" color="#a8a3ac" scale="0.03 0.12 1">
+                <a-box position="1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                    <a-box position="1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                        <a-box position="1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                            <a-box position="1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                                <a-box position="1.3 0 0" color="#a8a3ac" scale="1 1 1"></a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+                <a-box position="-13 0 0" color="#a8a3ac" scale="1 1 1">
+                    <a-box position="-1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                        <a-box position="-1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                            <a-box position="-1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                                <a-box position="-1.3 0 0" color="#a8a3ac" scale="1 1 1">
+                                    <a-box position="-1.3 0 0" color="#a8a3ac" scale="1 1 1"></a-box>
+                                </a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+            </a-box>
+            <!--หน้าต่างชั้น3-->
+            <!--หน้าต่างชั้น2-->
+            <a-box position="0.2 0.05 0.03" color="#fb9c3d" scale="0.03 0.2 1">
+                <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="0 0.5 0.5"
+                    color="#fb9c3d">
+                    <!--สามเหลี่ยม-->
+                    <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="1.3 0 0"
+                        color="#fb9c3d">
+                        <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="1.3 0 0"
+                            color="#fb9c3d">
+                            <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="1.3 0 0"
+                                color="#fb9c3d">
+                                <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0"
+                                    position="1.3 0 0" color="#fb9c3d">
+                                    <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0"
+                                        position="1.3 0 0" color="#fb9c3d">
+
+                                    </a-triangle>
+                                </a-triangle>
+                            </a-triangle>
+                        </a-triangle>
+                    </a-triangle>
+                </a-triangle>
+                <!--สามเหลี่ยม2-->
+                <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="-13 0.5 0.5"
+                    color="#fb9c3d">
+                    <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="-1.3 0 0"
+                        color="#fb9c3d">
+                        <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0" position="-1.3 0 0"
+                            color="#fb9c3d">
+                            <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0"
+                                position="-1.3 0 0" color="#fb9c3d">
+                                <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0"
+                                    position="-1.3 0 0" color="#fb9c3d">
+                                    <a-triangle vertex-a="0 0.2 -0.02" vertex-c="0.5 0 0" vertex-b="-0.5 0 0"
+                                        position="-1.3 0 0" color="#fb9c3d"></a-triangle>
+                                </a-triangle>
+                            </a-triangle>
+                        </a-triangle>
+                    </a-triangle>
+                </a-triangle>
+
+                <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                    <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                        <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                            <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                                <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1"></a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+                <a-box position="-13 0 0" color="#fb9c3d" scale="1 1 1">
+                    <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                        <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                            <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                                <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                                    <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1"></a-box>
+                                </a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+            </a-box>
+            <!--หน้าต่างชั้น2-->
+            <!--หน้าต่างชั้น1-->
+            <a-box position="0.2 -0.3 0.03" color="#fb9c3d" scale="0.03 0.2 1">
+                <a-circle color="#fb9c3d" position="0 0.25 0.5" geometry="primitive: circle; radius: 0.5">
+                    <a-circle color="#fb9c3d" position="1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                        <a-circle color="#fb9c3d" position="1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                            <a-circle color="#fb9c3d" position="1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                                <a-circle color="#fb9c3d" position="1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                                    <a-circle color="#fb9c3d" position="1.3 0 0"
+                                        geometry="primitive: circle; radius: 0.5">
+                                    </a-circle>
+                                </a-circle>
+                            </a-circle>
+                        </a-circle>
+                    </a-circle>
+                </a-circle>
+
+                <a-circle color="#fb9c3d" position="-13 0.25 0.5" geometry="primitive: circle; radius: 0.5">
+                    <a-circle color="#fb9c3d" position="-1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                        <a-circle color="#fb9c3d" position="-1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                            <a-circle color="#fb9c3d" position="-1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                                <a-circle color="#fb9c3d" position="-1.3 0 0" geometry="primitive: circle; radius: 0.5">
+                                    <a-circle color="#fb9c3d" position="-1.3 0 0"
+                                        geometry="primitive: circle; radius: 0.5">
+                                    </a-circle>
+                                </a-circle>
+                            </a-circle>
+                        </a-circle>
+                    </a-circle>
+                </a-circle>
+
+                <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                    <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                        <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                            <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                                <a-box position="1.3 0 0" color="#fb9c3d" scale="1 1 1"></a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+                <a-box position="-13 0 0" color="#fb9c3d" scale="1 1 1">
+                    <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                        <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                            <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                                <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1">
+                                    <a-box position="-1.3 0 0" color="#fb9c3d" scale="1 1 1"></a-box>
+                                </a-box>
+                            </a-box>
+                        </a-box>
+                    </a-box>
+                </a-box>
+            </a-box>
+            <!--หน้าต่างชั้น1-->
+            <a-box position="0 0 0.3" color="#c2a98a" scale="0.3 1 1">
+                <!--ตึกบน2ข้าง หลังคายาว-->
+                <a-box position="1.8 0.2 -0.2" color="#c2a98a" scale="0.6 1.4 0.8">
+                    <a-box position="0.45 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                    <a-box position="-0.5 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                    <a-box position="0.2 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                    <a-box position="-0.2 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                </a-box>
+
+                <a-box position="-1.8 0.2 -0.2" color="#c2a98a" scale="0.6 1.4 0.8">
+                    <a-box position="0.5 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                    <a-box position="-0.5 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                    <a-box position="0.2 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                    <a-box position="-0.2 0.4 0.5" color="#a08864" scale="0.09 0.23 0.02">
+                        <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                    </a-box>
+                </a-box>
+
+                <!--จั่ว1-->
+
+                <a-box position="0 -0.1 0.2" color="#a08864" scale="1.1 0.07 0.8"></a-box>
+                <a-box position="0 0.25 0.2" color="#a08864" scale="1.1 0.04 0.8"></a-box>
+                <a-box position="0 0.5 0.2" color="#a08864" scale="1.1 0.02 0.8"></a-box>
+
+                <a-box position="0.4 0.7 0.55" color="#a08864" scale="0.09 0.4 0.08">
+                    <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                </a-box>
+                <a-box position="-0.4 0.7 0.55" color="#a08864" scale="0.09 0.4 0.08">
+                    <a-box position="0 0.5 0" color="#88694c" scale="1.1 0.1 1.1"></a-box>
+                </a-box>
+
+                <!--จั่ว2-->
+            </a-box>
+            <a-box position="0 0.55 0" color="#4f5467" scale="1 0.3 0.8"></a-box>
+            <a-box position="0 -0.1 0.2" color="#a08864" scale="1 0.07 0.8"></a-box>
+            <a-box position="0 0.25 0.2" color="#a08864" scale="1 0.05 0.8"></a-box>
+            <a-box position="0 0.5 0.2" color="#a08864" scale="1 0.02 0.8"></a-box>
+            <!--รั้วบน-->
+            <a-box position="0 0.6 0.55" color="#a08864" scale="1 0.02 0.02">
+            </a-box>
+
+        </a-box>
+
+        <!--พีระมิด-->
+        <a-entity position="0 -5 -22">
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="5 0 0" vertex-b="-5 0 0" vertex-c="0 8 -5"
+                material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="5 0 -10" vertex-b="-5 0 -10"
+                vertex-c="0 8 -5" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="5 0 -10" vertex-b="5 0 0" vertex-c="0 8 -5"
+                material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="-5 0 0" vertex-b="-5 0 -10"
+                vertex-c="0 8 -5" material="side:double"></a-triangle>
+        </a-entity>
+
+        <!-- ทางเข้า -->
+        <a-box position="0 -4 -22.5" rotation="0 0 0" color="#28292d" opacity="1" scale="2.5 2 1"></a-box>
+
+        <!-- ขอบหน้า -->
+        <a-box position="0 -5 -22" rotation="0 90 0" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <!-- ขอบซ้าย-->
+        <a-box position="-5 -5 -27" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <!-- ขอบขวา-->
+        <a-box position="5 -5 -27" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <!-- ขอบหลัง-->
+        <a-box position="0 -5 -32" rotation="0 90 0" color="#6e524d" scale="0.1 0.1 10"></a-box>
+
+        <!--   มินิพีระมิดซ้าย -->
+        <a-entity position="-11 -5 -26.2" rotation="0 45 0">
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 0" vertex-b="-1 0 0"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 -2" vertex-b="-1 0 -2"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 -2" vertex-b="1 0 0"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="-1 0 0" vertex-b="-1 0 -2"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+        </a-entity>
+
+        <!--   มินิพีระมิดขวา -->
+        <a-entity position="12.5 -5 -26.2" rotation="0 45 0">
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 0" vertex-b="-1 0 0"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 -2" vertex-b="-1 0 -2"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 -2" vertex-b="1 0 0"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="-1 0 0" vertex-b="-1 0 -2"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+        </a-entity>
+
+        <!--   มินิพีระมิดหลัง -->
+        <a-entity position="0.7 -5 -38" rotation="0 45 0">
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 0" vertex-b="-1 0 0"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 -2" vertex-b="-1 0 -2"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="1 0 -2" vertex-b="1 0 0"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+            <a-triangle color="#575161" opacity="0.75" src="#grid" vertex-a="-1 0 0" vertex-b="-1 0 -2"
+                vertex-c="0 1.5 -1" material="side:double"></a-triangle>
+        </a-entity>
+
+        <!--รอบๆพีระมิด-->
+        <!--   สระน้ำซ้าย -->
+        <a-box position="-7.5 -5 -29.5" rotation="0 -45 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-box position="-7.5 -5 -24.5" rotation="0 45 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-triangle position="-5 -5 -27" color="#AFCBFF" src="#water" rotation="0 -90 0" vertex-a="5 0 0"
+            vertex-b="-5 0 0" vertex-c="0 0 5"></a-triangle>
+
+        <!--   สระน้ำขวา -->
+        <a-box position="7.5 -5 -29.5" rotation="0 -135 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-box position="7.5 -5 -24.5" rotation="0 135 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-triangle position="5 -5 -27" color="#AFCBFF" src="#water" rotation="0 90 0" vertex-a="5 0 0"
+            vertex-b="-5 0 0" vertex-c="0 0 5"></a-triangle>
+
+        <!--   สระน้ำหลัง -->
+        <a-box position="2.5 -5 -34.5" rotation="0 -135 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-box position="-2.5 -5 -34.5" rotation="0 135 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-triangle position="0 -5 -32" color="#AFCBFF" src="#water" rotation="0 180 0" vertex-a="5 0 0"
+            vertex-b="-5 0 0" vertex-c="0 0 5"></a-triangle>
+
+        <!--   สระน้ำซ้ายหน้า -->
+        <a-box position="-10 -5 -21.5" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <a-box position="-7.5 -5 -24" rotation="0 -135 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-box position="-7.5 -5 -19" rotation="0 135 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-triangle position="-10 -5 -21.5" color="#AFCBFF" src="#water" rotation="0 90 0" vertex-a="5 0 0"
+            vertex-b="-5 0 0" vertex-c="0 0 5"></a-triangle>
+
+        <!--   สระน้ำขวาหน้า -->
+        <a-box position="10 -5 -21.5" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <a-box position="7.5 -5 -24" rotation="0 -45 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-box position="7.5 -5 -19" rotation="0 45 0" color="#6e524d" scale="0.1 0.1 7"></a-box>
+        <a-triangle position="10 -5 -21.5" color="#AFCBFF" src="#water" rotation="0 -90 0" vertex-a="5 0 0"
+            vertex-b="-5 0 0" vertex-c="0 0 5"></a-triangle>
+
+        <!--   สระน้ำซ้ายหลัง -->
+        <a-box position="-5.5 -5 -37.2" rotation="0 87 0" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <a-box position="-10.3 -5 -32.5" rotation="0 3 0" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <a-box position="-5.3 -5 -32.3" rotation="0 135 0" color="#6e524d" scale="0.1 0.1 13.3"></a-box>
+        <a-triangle position="-5.3 -5 -32.3" color="#AFCBFF" src="#water" rotation="0 -135 0" vertex-a="6.7 0 0"
+            vertex-b="-6.7 0 0" vertex-c="0 0 7.5"></a-triangle>
+
+        <!--   สระน้ำขวาหลัง -->
+        <a-box position="5.5 -5 -37.2" rotation="0 -87 0" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <a-box position="10.3 -5 -32.5" rotation="0 -3 0" color="#6e524d" scale="0.1 0.1 10"></a-box>
+        <a-box position="5.3 -5 -32.3" rotation="0 -135 0" color="#6e524d" scale="0.1 0.1 13.3"></a-box>
+        <a-triangle position="5.3 -5 -32.3" color="#AFCBFF" src="#water" rotation="0 135 0" vertex-a="6.7 0 0"
+            vertex-b="-6.7 0 0" vertex-c="0 0 7.5"></a-triangle>
+
+        <!-- คนตรงซ้ายพีระมิด -->
+        <a-entity id="people1" animation="property: position; to: 0 0 5; dur: 3000; easing: linear; loop: true">
+            <a-sphere position="-13 -3.2 -20" radius="0.3" color="#60594D"></a-sphere>
+            <a-box position="-13 -4 -20" scale="0.5 1 0.5" color="#708D81"></a-box>
+        </a-entity>
+
+        <!-- คนตรงขวาพีระมิด -->
+        <a-entity id="people2" animation="property: position; to: -3 0 -5; dur: 3000; easing: linear; loop: true">
+            <a-sphere position="14 -3.2 -15" radius="0.3" color="#493B2A"></a-sphere>
+            <a-box position="14 -4 -15" scale="0.5 1 0.5" color="#593F62"></a-box>
+        </a-entity>
+
+        <!-- คนใกล้ตึกในฝั่งซ้าย -->
+        <a-entity id="people3" animation="property: position; to: 12 0 -2; dur: 3000; easing: linear; loop: true">
+            <a-sphere position="-12 -3.2 -38" radius="0.3" color="#565264"></a-sphere>
+            <a-box position="-12 -4 -38" scale="0.5 1 0.5" color="#706677"></a-box>
+        </a-entity>
+
+        <!-- คนใกล้ตึกในฝั่งขวา -->
+        <a-entity id="people4" animation="property: position; to: 0 0 7; dur: 3000; easing: linear; loop: true">
+            <a-sphere position="12 -3.2 -38" radius="0.3" color="#2E2836"></a-sphere>
+            <a-box position="12 -4 -38" scale="0.5 1 0.5" color="#6A2E35"></a-box>
+        </a-entity>
+
+        <!-- คนใกล้พีระมิดด้านหน้า -->
+        <a-entity id="people5" animation="property: position; to: -7 0 7; dur: 3000; easing: linear; loop: true">
+            <a-sphere position="6 -3.2 -12" radius="0.3" color="#48392A"></a-sphere>
+            <a-box position="6 -4 -12" scale="0.5 1 0.5" color="#C06E52"></a-box>
+        </a-entity>
+
+        <a-box color="#a08864" scale='6 1 0.3' position="0 -5 -13">
+            <a-plane color="#c2a98a" scale='0.9 4 1' position="0 0 0">
+                <a-entity scale='1 0.5' position="1.03 0.35 0.1"
+                    text="font: https://cdn.aframe.io/fonts/mozillavr.fnt; width: 3; height:4; value: Louvre Museum">
+            </a-plane>
+            <a-box color="#a08864" scale='0.05 4 1' position="-0.47 0 0"></a-box>
+            <a-box color="#a08864" scale='0.05 4 1' position="0.47 0 0"></a-box>
+        </a-box>
+
+    </a-scene>
+</body>
+
+</html>

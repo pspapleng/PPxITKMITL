@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Chat</title>
+  </head>
+  <body>
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>message</th>
+        </tr>
+      </thead>
+      <tbody id="dataRow"></tbody>
+    </table>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAZOycSdefX8hyY8BWTCKwchL5PLUJiUyU",
+        authDomain: "atoz-9d4f8.firebaseapp.com",
+        databaseURL: "https://atoz-9d4f8.firebaseio.com",
+        projectId: "atoz-9d4f8",
+        storageBucket: "atoz-9d4f8.appspot.com",
+        messagingSenderId: "180619054346",
+        appId: "1:180619054346:web:cf19fcaf5e0d6fe6123ef3",
+        measurementId: "G-XHMLBPD509"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      let myFirebase = firebase.database();
+      let dataRef = myFirebase.ref("/guestbook");
+      dataRef.limitToLast(5).on("child_added", function(childSnapshot) {
+        let item = childSnapshot.val();
+        document.getElementById("dataRow").innerHTML +=
+          "<tr><td>" + item.name + "</td><td>" + item.message;
+      });
+    </script>
+  </body>
+</html>

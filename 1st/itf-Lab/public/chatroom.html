@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ChicChat 💕</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="font-family: 'Tomorrow', sans-serif; background-color: #E39774">
+    <h1 class="text-center m-5" style="color: #EE2E31">
+      ChicChat 💕
+    </h1>
+    <div class="container mt-5">
+      <table class="table table-hover" style="color: #EEEEEE">
+        <thead>
+          <tr>
+            <th>🏷️Name</th>
+            <th>💌Message</th>
+          </tr>
+        </thead>
+        <tbody id="dataRow"></tbody>
+      </table>
+      <form id="CommentForm">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              id="idName"
+              class="form-control"
+              placeholder="Enter name pls"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              id="idMessage"
+              class="form-control"
+              placeholder="Text me : )"
+            />
+          </div>
+          <div class="col">
+            <button
+              type="submit"
+              class="btn btn-danger btn-block"
+              style="color: #EEEEEE"
+              id="commentBtn"
+            >
+              Send !
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="mt-5">
+        <audio
+          class="mx-auto d-block"
+          autoplay=""
+          loop=""
+          controls=""
+          name="media"
+        >
+          <source src="The Simple Things.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAZOycSdefX8hyY8BWTCKwchL5PLUJiUyU",
+        authDomain: "atoz-9d4f8.firebaseapp.com",
+        databaseURL: "https://atoz-9d4f8.firebaseio.com",
+        projectId: "atoz-9d4f8",
+        storageBucket: "atoz-9d4f8.appspot.com",
+        messagingSenderId: "180619054346",
+        appId: "1:180619054346:web:cf19fcaf5e0d6fe6123ef3",
+        measurementId: "G-XHMLBPD509"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      let myFirebase = firebase.database();
+      let dataRef = myFirebase.ref("/guestbook");
+      document.getElementById("commentBtn").onclick = function() {
+        let lname = document.getElementById("idName").value;
+        let lmessage = document.getElementById("idMessage").value;
+        dataRef.push({
+          name: lname,
+          message: lmessage
+        });
+      };
+      dataRef.limitToLast(5).on("child_added", function(childSnapshot) {
+        let item = childSnapshot.val();
+        document.getElementById("dataRow").innerHTML +=
+          "<tr><td>" + item.name + "</td><td>" + item.message + "</td>";
+      });
+    </script>
+  </body>
+</html>

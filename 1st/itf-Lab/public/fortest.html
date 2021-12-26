@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ITF chat contest</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Tomorrow&amp;display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <body style="font-family: 'Tomorrow', sans-serif; background-color: #335C67; color: #E09F3E" class="container">
+    <h1 class="m-5">Email Application</h1>
+    <div class="container row m-2">
+        <div class="col-7 form-group">
+            <form id="CommentForm" class="container">
+                    <h3>New Massage</h3><br>
+            <input type="text" id="idName" placeholder="To ...">
+            <br>
+            <br>
+            <textarea rows="10" cols="20" id="idComment" placeholder="Enter Message"></textarea><br>
+            <br>
+            <input type="text" id="idLink" placeholder="Enter Link"> <br><br>
+            <button type="submit" class="btn btn-dark" style="color: #EEEEEE" id="commentBtn">
+              Send !
+            </button>
+        </form>
+        </div>
+        <div class="col-5">
+            <div class="container">
+                <h3 class="mb-2">Contact</h3>
+               <table class="table table-hover table-bordered" style="color: #E09F3E">
+                <th>friend</th>
+                </table>
+            </div>
+        </div>    
+    </div>
+    <div class="row mb-5 ml-5 mr-5 mt-3">
+            <h3>Inbox</h3><br>
+        <table class="container table table-hover mt-3" style="color: #E09F3E">
+            <thead>
+                <tr>
+                <th>To</th>
+                <th>Message</th>
+                <th>Image</th>
+                </tr>
+            </thead>
+        <tbody id="dataRow"></tbody>
+        </table>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAZOycSdefX8hyY8BWTCKwchL5PLUJiUyU",
+        authDomain: "atoz-9d4f8.firebaseapp.com",
+        databaseURL: "https://atoz-9d4f8.firebaseio.com",
+        projectId: "atoz-9d4f8",
+        storageBucket: "atoz-9d4f8.appspot.com",
+        messagingSenderId: "180619054346",
+        appId: "1:180619054346:web:601fac9b0683664b123ef3",
+        measurementId: "G-LMJXVJL4F3"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      let myFirebase = firebase.database();
+      let dataRef = myFirebase.ref("/fortest");
+      document.getElementById("commentBtn").onclick = function() {
+        let lname = document.getElementById("idName").value;
+        let lcomment = document.getElementById("idComment").value;
+        let llink = document.getElementById("idLink").value;
+        let ltime = Date.now();
+        dataRef.push({
+          name: lname,
+          comment: lcomment,
+          link: llink,
+          time: ltime
+        });
+      };
+      dataRef.limitToLast(5).on("child_added", function(childSnapshot) {
+        let item = childSnapshot.val();
+        document.getElementById("dataRow").innerHTML +=
+          "<tr><td>" +
+          item.name +
+          "</td><td>" +
+          item.comment +
+          "</td><td>" + "<img src=" +
+          item.link + " + width=" + 50 + " + height=" + 50 + ">" +
+          "</td></tr>";
+      });
+    </script>
+</body>
+</html>
