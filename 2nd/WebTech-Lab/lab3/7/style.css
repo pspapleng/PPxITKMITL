@@ -1,0 +1,9 @@
+body {
+  font-family: "Kanit", sans-serif;
+  margin-top: 12.5%;
+}
+#b1,
+#b2,
+#b3 {
+  background-color: #fbc702;
+}

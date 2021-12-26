@@ -1,0 +1,61 @@
+body {
+  font-family: "Mitr", sans-serif;
+  background-color: cornsilk;
+}
+.back {
+  text-align: center;
+}
+.logo {
+  margin-top: 5px;
+  width: 5%;
+}
+.name {
+  height: 25%;
+  color: black;
+}
+.box {
+  width: 25%;
+  height: 70%;
+  background-color: white;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.product {
+  width: 80%;
+  height: 35%;
+  padding-top: 20%;
+  padding-bottom: 5;
+}
+
+.button {
+  width: 35%;
+  height: 10%;
+  color: white;
+  border: none;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 80%;
+  cursor: pointer;
+  margin: auto;
+}
+
+.add {
+  background-color: salmon;
+  color: white;
+}
+.add:hover {
+  background-color: white;
+  color: salmon;
+  border: 2px solid salmon;
+}
+
+.check {
+  background-color: skyblue;
+  color: white;
+}
+.check:hover {
+  background-color: white;
+  color: skyblue;
+  border: 2px solid skyblue;
+}

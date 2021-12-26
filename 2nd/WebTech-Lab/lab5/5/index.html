@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=s, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>lab5/5</title>
+  </head>
+  <body style="font-family: 'Prompt', sans-serif; font-size: 20px">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12 h1 m-3">Tutor list</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <ul class="list-group border rounded m-auto" id="name"></ul>
+        </div>
+        <div class="col-sm-8">
+          <ul class="list-group" id="profile"></ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      let requestURL = "tutor.json";
+      let request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+          dataReportStatus(JSON.parse(request.responseText));
+        }
+      };
+      request.open("GET", requestURL, true);
+      request.send();
+
+      function dataReportStatus(data) {
+        for (let i = 0; i < data.length; i++) {
+          let newName = document.createElement("li");
+          newName.setAttribute("class", "list-group-item");
+          let link = document.createElement("a");
+          link.setAttribute("href", "#" + i);
+          link.setAttribute("class", "list-group-item-action text-dark h6");
+          link.appendChild(
+            document.createTextNode(data[i].firstname + " " + data[i].lastname)
+          );
+          newName.appendChild(link);
+          document.getElementById("name").appendChild(newName);
+
+          let newProfile = document.createElement("li");
+          newProfile.setAttribute(
+            "class",
+            "list-group-item bg-info text-white rounded mb-3 "
+          );
+          newProfile.setAttribute("id", i);
+          let headName = document.createElement("h4");
+          headName.appendChild(
+            document.createTextNode(data[i].firstname + " " + data[i].lastname)
+          );
+          newProfile.appendChild(headName);
+          document.getElementById("profile").appendChild(newProfile);
+          let addAge = document.createElement("h5");
+          addAge.appendChild(document.createTextNode("Age : " + data[i].age));
+          let addTel = document.createElement("h5");
+          addTel.appendChild(document.createTextNode("Tel : " + data[i].tel));
+          let addSubj = document.createElement("h5");
+          addSubj.appendChild(document.createTextNode("Subject : "));
+          let ulSubj = document.createElement("ul");
+          ulSubj.setAttribute("class", "h5 mb-3");
+
+          for (let j = 0; j < data[i].subject.length; j++) {
+            let newSubj = document.createElement("li");
+            newSubj.appendChild(document.createTextNode(data[i].subject[j]));
+            ulSubj.appendChild(newSubj);
+          }
+
+          document.getElementById("profile").appendChild(addAge);
+          document.getElementById("profile").appendChild(addTel);
+          document.getElementById("profile").appendChild(addSubj);
+          document.getElementById("profile").appendChild(ulSubj);
+        }
+      }
+    </script>
+  </body>
+</html>

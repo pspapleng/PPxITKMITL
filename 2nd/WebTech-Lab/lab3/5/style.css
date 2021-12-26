@@ -1,0 +1,32 @@
+body {
+  font-family: "Kanit", sans-serif;
+  padding: 10px;
+}
+.bar {
+  width: 100%;
+  background-color: #ffffff;
+  padding-bottom: 10px;
+  text-align: left;
+  padding: 10px;
+  color: white;
+}
+#M {
+  width: 7%;
+  background-color: #ff858d;
+}
+#T {
+  width: 7%;
+  background-color: #6bbaec;
+}
+#E {
+  width: 7%;
+  background-color: #89daff;
+}
+#Sc {
+  width: 7%;
+  background-color: #8f95d3;
+}
+#So {
+  width: 7%;
+  background-color: #ff9fe5;
+}

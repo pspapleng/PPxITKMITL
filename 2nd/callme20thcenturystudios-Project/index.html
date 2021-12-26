@@ -1,0 +1,431 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--VIDEO SLIDE PART-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!--VIDEO SLIDE PART-->
+  <link rel="stylesheet" href="index.css">
+  <title>20th Century Studios | Official Site</title>
+</head>
+
+<body>
+  <!----------------------------Navigator-------------------->
+  <nav class="navbar navbar-expand sticky-top" style="background-color: #000000;">
+    <a class="dex mll mt-1 mb-1" onclick="window.location.href='index.html'">
+      <img src="logo_20.svg" style="width: 65%;" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <strong class="navbar-toggler-icon"></strong>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" onclick="window.location.href='index.html'">
+          <a id="home" class="nav-link navf"><span>Home<span class="navhome"></span></a>
+        </li>
+        <li class="nav-item " onclick="window.location.href='movie.html'">
+          <a id="home" class="nav-link navf  pl-3"><span>Movies<span class="navmov"></span></a>
+        </li>
+      </ul>
+      <div class="input-group search-field col-3 d-flex ml-auto pt-1">
+        <span class="input-group-prepend">
+          <div id="s1" class="input-group-text ">
+            <a class="pr-2" id="sch" href="#"><i class="icon fa fa-search" aria-hidden="true"></i></a>
+            <input id="s2" class="form-control" type="text" placeholder="Search" autocomplete="off" aria-label="Search"
+              autocorrect="off" disabled />
+        </span>
+      </div>
+    </div>
+    <script>
+      $(".navmov").after(function () {
+        $(".navmov").addClass('button-clicked');
+        $(".navhome").addClass('button-clicked1');
+      });
+    </script>
+
+  </nav>
+  <!-------------------------Navigator-------------------------->
+  <!-------------------------Carousel--------------------------->
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="keet carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+    </ol>
+    <div class="carousel-inner" id="inner-cover">
+      <div class="carousel-item active" id="item-cover">
+        <img id="img-cover"
+          src="https://lumiere-a.akamaihd.net/v1/images/hb_20cs_thenewmutants_36b7cb6f.jpeg?region=0,0,2048,878"
+          class="d-block w-100" alt="...">
+        <div class="row carousel-caption d-none d-block">
+          <h5 id="moviename">THE NEW MUTANTS</h5>
+          <p id="status">Now On Digital and Blu-Ray™. New on 4K Ultra HD™</p>
+          <button type="button" id="get-tg-bt" class="btn btn-primary btn-md">GET TICKETS</button>
+          <button type="button" id="visit-bt" class="btn btn-primary btn-md"
+            onclick="location.href = 'OfficialSite.html?movie=THE NEW MUTANTS';">VISIT OFFICIAL
+            SITE</button>
+        </div>
+      </div>
+      <div class="carousel-item" id="item-cover">
+        <img id="img-cover"
+          src="https://lumiere-a.akamaihd.net/v1/images/hb_20cs_tplodavidcopperfield_20514_a2e22704.jpeg?region=0,0,2048,878"
+          class="d-block w-100" alt="...">
+        <div class="row carousel-caption d-none d-block">
+          <h5 id="moviename">THE PERSONAL HISTORY OF DAVID COPPERFIELD</h5>
+          <p id="status">Now only on Digital</p>
+          <button type="button" id="get-tg-bt" class="btn btn-primary btn-md" data-toggle="modal"
+            data-target="#watch-modal" onClick="onClickWatch('https://www.youtube.com/embed/Al4jy78GiQQ')">WATCH
+            TRAILER</button>
+          <button type="button" id="visit-bt" class="btn btn-primary btn-md"
+            onclick="location.href = 'OfficialSite.html?movie=THE PERSONAL HISTORY OF DAVID COPPERFIELD';">VISIT
+            OFFICIAL
+            SITE</button>
+        </div>
+      </div>
+      <div class="carousel-item" id="item-cover">
+        <img id="img-cover"
+          src="https://lumiere-a.akamaihd.net/v1/images/hb_20cs_theemptyman_20320_95844c46.jpeg?region=0,0,2048,878"
+          class="d-block w-100" alt="Responsive image">
+        <div class="row carousel-caption d-none d-block">
+          <h5 id="moviename">THE EMPTY MAN</h5>
+          <p id="status">In Theaters Now</p>
+          <button type="button" id="get-tg-bt" class="btn btn-primary btn-md ">GET TICKETS</button>
+          <button type="button" id="visit-bt" class="btn btn-primary btn-md"
+            onclick="location.href = 'OfficialSite.html?movie=THE EMPTY MAN';">VISIT OFFICIAL
+            SITE</button>
+        </div>
+      </div>
+      <div class="carousel-item" id="item-cover">
+        <img id="img-cover"
+          src="https://lumiere-a.akamaihd.net/v1/images/hb_20cs_freeguy_20091_4208baba.jpeg?region=0,0,2048,878"
+          class="d-block w-100" alt="...">
+        <div class="row carousel-caption d-none d-block">
+          <h5 id="moviename">FREE GUY</h5>
+          <p id="status">In Theaters December 11, 2020</p>
+          <button type="button" id="get-tg-bt" class="btn btn-primary btn-md"
+            onClick="onClickWatch('https://www.youtube.com/embed/JORN2hkXLyM')" data-toggle="modal"
+            data-target="#watch-modal">WATCH TRAILER</button>
+          <button type="button" id="visit-bt" class="btn btn-primary btn-md"
+            onclick="location.href = 'OfficialSite.html?movie=FREE GUY';">VISIT OFFICIAL
+            SITE</button>
+        </div>
+      </div>
+      <div class="carousel-item" id="item-cover">
+        <img id="img-cover"
+          src="https://lumiere-a.akamaihd.net/v1/images/hb_20cs_deathonthenile_19923_2_cb3d7374.jpeg?region=0,0,2048,878"
+          class="d-block w-100" alt="...">
+        <div class="row carousel-caption d-none d-block">
+          <h5 id="moviename">DEATH ON THE NILE</h5>
+          <p id="status">In Theaters December 18, 2020</p>
+          <button type="button" id="get-tg-bt" class="btn btn-primary btn-md"
+            onClick="onClickWatch('https://www.youtube.com/embed/JM1U-Whb-P0')" data-toggle="modal"
+            data-target="#watch-modal">WATCH TRAILER</button>
+          <button type="button" id="visit-bt" class="btn btn-primary btn-md"
+            onclick="location.href = 'OfficialSite.html?movie=DEATH ON THE NILE';">VISIT OFFICIAL
+            SITE</button>
+        </div>
+      </div>
+      <div class="carousel-item" id="item-cover">
+        <img id="img-cover"
+          src="https://lumiere-a.akamaihd.net/v1/images/hb_20cs_thekingsman_20186_0b945a3b.jpeg?region=0,0,2048,878"
+          class="d-block w-100" alt="...">
+        <div class="row carousel-caption d-none d-block">
+          <h5 id="moviename">THE KING'S MAN</h5>
+          <p id="status">In Theaters February 12, 2021</p>
+          <button type="button" id="get-tg-bt" class="btn btn-primary btn-md"
+            onClick="onClickWatch('https://www.youtube.com/embed/e82JHkkPw54')" data-toggle="modal"
+            data-target="#watch-modal">WATCH TRAILER</button>
+          <button type="button" id="visit-bt" class="btn btn-primary btn-md"
+            onclick="location.href = 'OfficialSite.html?movie=THE KING%27S MAN';">VISIT OFFICIAL
+            SITE</button>
+        </div>
+      </div>
+    </div>
+    <a id="carousel-control-prev-1" class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+      data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a id="carousel-control-next-1" class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+      data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-------------------------Carousel--------------------------->
+  <!--Watch Modal -->
+  <div class="modal fade" id="watch-modal" tabindex="-1" role="dialog" aria-labelledby="watch-modalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content mb-0 p-0" id="watch-modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onClickWatch('')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="embed-responsive embed-responsive-16by9" id="inwatch-modal"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Watch Modal -->
+  <!----------------------- info ---------------------------------->
+  <div class="container pt-5">
+
+    <div class="row pt-2 pb-5" id="featured-title"></div>
+
+    <div class="row pt-2 pb-5" id="on-digital"></div>
+
+    <!-- video slide part -->
+    <div class="row pt-2 pb-5" id="videos"></div>
+    <!--Video slide Modal -->
+    <div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modalTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content mb-0 p-0" id="video-modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="embed-responsive embed-responsive-16by9" id="invideo-modal"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!----------------------- info ---------------------------------->
+  <!-----------------------footer---------------------------------->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="row d-flex justify-content-around">
+        <div class="col-xl-12  col-sm-10 col-5 foot pt-4">
+          <a class="p-3" href="#" id="foot">Searchlight </a>
+          <a class="p-3" href="#" id="foot"> Blue Sky</a>
+          <a class="p-3" href="#" id="foot">Redeem Digital Codes</a>
+          <a class="p-3" href="#" id="foot">Contact Us </a>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-around">
+        <div class="col-xl-12 col-sm-10 col-5 foot pb-4">
+          <a class="p-3" href="#" id="foot2">Terms of Use </a>
+          <a class="p-3" href="#" id="foot2"> Privacy Policy</a>
+          <a class="p-3" href="#" id="foot2">Your California Privacy Rights</a>
+          <a class="p-3" href="#" id="foot2">Children’s Online Privacy Policy</a>
+          <a class="p-3" href="#" id="foot2">Interest-Based Ads</a>
+          <a class="p-3" href="#" id="foot2">Do Not Sell My Info </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-----------------------footer---------------------------------->
+</body>
+<script>
+  let requestURL = '20cenData.json';
+  let request = new XMLHttpRequest();
+
+  let CurrentWatch = ""
+  function onClickWatch(payload) {
+    CurrentWatch = payload
+    let watch_modal = "";
+    watch_modal += '<iframe class="embed-responsive-item" src="' + payload + '" allowfullscreen></iframe>';
+    document.querySelector("#inwatch-modal").innerHTML += watch_modal;
+    console.log(JSON.stringify(payload));
+  }
+
+  let CurrentVideo = ""
+  function onClickVideo(payload) {
+    CurrentVideo = payload
+    let vdo_modal = "";
+    vdo_modal += '<iframe class="embed-responsive-item" src="' + payload + '" allowfullscreen></iframe>';
+    document.querySelector("#invideo-modal").innerHTML += vdo_modal;
+    console.log(JSON.stringify(payload));
+  }
+
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      dataReportStatus(JSON.parse(request.responseText));
+    }
+  };
+  request.open("GET", requestURL, true);
+  request.send();
+
+  function dataReportStatus(data) {
+
+    // featured title
+
+    // movie have featured tag
+    let featArr = data.filter(e => e.feat === "featured")
+
+    let featSelect = "";
+    featSelect += '<h3><b>FEATURED TITLES</b></h3>';
+    featSelect += '<div id="Rec_recipeCarousel" class="carousel slide w-100 pt-2" data-interval="false" data-ride="carousel">';
+    featSelect += '<div class="carousel-inner w-100 d-block" role="listbox">'
+
+    featSelect += '<div class="carousel-item row no-gutters active justify-content-around">'
+    let feat_length = featArr.length >= 5 ? 5 : featArr.length;
+    //first page
+    for (var num_rec = 0; num_rec < feat_length; num_rec++) {
+      featSelect += '<div class="reccol "><a href="OfficialSite.html?movie=' + featArr[num_rec].title.replace(/'/g, '%27') + '">';
+      featSelect += '<img class="img-fluid rec_pos" src="' + featArr[num_rec].poster_url + '"></a>';
+      featSelect += '<h6 class="title-movie pt-1"><b>' + featArr[num_rec].title + '</b></h6>';
+      featSelect += '</div>';
+    }
+    featSelect += '</div>';
+
+    //next page
+    var loopvalue = Math.ceil((featArr.length) / 5);
+    var numR = 5;
+
+    for (var numR2 = 1; numR2 < loopvalue; numR2++) {
+      featSelect += '<div class="carousel-item row no-gutters justify-content-around">'
+      var counter = 1;
+      while (numR != featArr.length) {
+        featSelect += '<div class="reccol "><a href="OfficialSite.html?movie=' + featArr[numR].title.replace(/'/g, '%27') + '">';
+        featSelect += '<img class="img-fluid rec_pos" src="' + featArr[numR].poster_url + '"></a>';
+        featSelect += '<h6 class="title-movie pt-1"><b>' + featArr[numR].title + '</b></h6>';
+        featSelect += '</div>';
+        numR++;
+        if (counter == 5) {
+          break;
+        }
+        counter++;
+      }
+      featSelect += '</div>';
+    }
+    featSelect += '<a class="carousel-control-prev" href="#Rec_recipeCarousel" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>';
+    featSelect += '<a class="carousel-control-next" href="#Rec_recipeCarousel" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>';
+
+    featSelect += '</div ></div >';
+    document.querySelector("#featured-title").innerHTML += featSelect;
+
+    // on digital
+
+    // movie on digital
+    let digitalArr = data.filter(e => e.haveShop)
+
+    let digitalSelect = "";
+    digitalSelect += '<h3><b>ON BLU-RAY, DVD & DIGITAL</b></h3>';
+    digitalSelect += '<div id="digital_recipeCarousel" class="carousel slide w-100 pt-2" data-interval="false" data-ride="carousel">';
+    digitalSelect += '<div class="carousel-inner w-100 d-block" role="listbox">'
+
+    digitalSelect += '<div class="carousel-item row no-gutters active justify-content-around">'
+    let digital_length = digitalArr.length >= 5 ? 5 : digitalArr.length;
+    //first page
+    for (var num_rec = 0; num_rec < digital_length; num_rec++) {
+      digitalSelect += '<div class="reccol "><a href="OfficialSite.html?movie=' + digitalArr[num_rec].title.replace(/'/g, '%27') + '">';
+      digitalSelect += '<img class="img-fluid rec_pos" src="' + digitalArr[num_rec].poster_url + '"></a>';
+      digitalSelect += '<h6 class="title-movie pt-1"><b>' + digitalArr[num_rec].title + '</b></h6>';
+      digitalSelect += '</div>';
+    }
+    digitalSelect += '</div>';
+
+    //next page
+    var loopvalue = Math.ceil((digitalArr.length) / 5);
+    var numR = 5;
+
+    for (var numR2 = 1; numR2 < loopvalue; numR2++) {
+      digitalSelect += '<div class="carousel-item row no-gutters justify-content-around">'
+      var counter = 1;
+      while (numR != digitalArr.length) {
+        digitalSelect += '<div class="reccol "><a href="OfficialSite.html?movie=' + digitalArr[numR].title.replace(/'/g, '%27') + '">';
+        digitalSelect += '<img class="img-fluid rec_pos" src="' + digitalArr[numR].poster_url + '"></a>';
+        digitalSelect += '<h6 class="title-movie pt-1"><b>' + digitalArr[numR].title + '</b></h6>';
+        digitalSelect += '</div>';
+        numR++;
+        if (counter == 5) {
+          break;
+        }
+        counter++;
+      }
+      digitalSelect += '</div>';
+    }
+    digitalSelect += '<a class="carousel-control-prev" href="#digital_recipeCarousel" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>';
+    digitalSelect += '<a class="carousel-control-next" href="#digital_recipeCarousel" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>';
+
+    digitalSelect += '</div ></div >';
+    document.querySelector("#on-digital").innerHTML += digitalSelect;
+
+    /*VIDEO PART*/
+    let arrimgMov = []
+    let arrtitleMov = []
+    let arrurlMov = []
+    let num = 10;
+    for (var loop = 0; loop < num; loop++) {
+      if (data[loop].video.length != 0) {
+        arrimgMov.push(data[loop].video[0].video_image)
+        arrtitleMov.push(data[loop].video[0].title)
+        arrurlMov.push(data[loop].video[0].video_url)
+      } else {
+        num += 1;
+      }
+    }
+
+    let vdoSelect = "";
+    vdoSelect += '<h3><b>VIDEOS</b></h3>';
+    vdoSelect += '<div id="recipeCarousel" class="carousel slide w-100 pt-2 " data-interval="false" data-ride="carousel">';
+    vdoSelect += '<div class="carousel-inner w-100 " role="listbox">'
+
+    let length = arrtitleMov.length >= 4 ? 4 : arrtitleMov.length;
+    vdoSelect += '<div class="carousel-item row no-gutters active justify-content-between">'
+    //first page video
+    for (var vdo = 0; vdo < length; vdo++) {
+      vdoSelect += '<div class="col-6 col-sm-3 col-md-3 col-lg-3 pr-3 float-left text-left vdoclick" onClick="onClickVideo(\'' + arrurlMov[vdo] + '\')" >';
+      vdoSelect += '<img class="img-fluid" src="' + arrimgMov[vdo] + '" data-toggle="modal" data-target="#video-modal" >';
+      vdoSelect += '<h6 class="title-vdo pt-1"><b>' + arrtitleMov[vdo] + '</b></h6>';
+      vdoSelect += '</div>';
+    }
+    vdoSelect += '</div>';
+
+    //next page video
+    var loopvalue = Math.ceil((arrtitleMov.length) / 4);
+    var vdo = 4;
+
+    for (var vdo2 = 1; vdo2 < loopvalue; vdo2++) {
+      vdoSelect += '<div class="carousel-item row no-gutters justify-content-between">'
+      var counter = 1;
+      while (vdo != arrtitleMov.length) {
+        vdoSelect += '<div class="col-6 col-sm-3 col-md-3 col-lg-3 pr-3 float-left text-left vdoclick" data-toggle="modal" data-target="#video-modal"onClick="onClickVideo(\'' + arrurlMov[vdo] + '\')" >';
+        vdoSelect += '<img class="img-fluid" src="' + arrimgMov[vdo] + '" >';
+        vdoSelect += '<h6 class="title-vdo pt-1"><b>' + arrtitleMov[vdo] + '</b></h6>';
+        vdoSelect += '</div>';
+        vdo++;
+        if (counter == 4) {
+          break;
+        }
+        counter++;
+      }
+      vdoSelect += '</div>';
+    }
+    console.log("Current ", CurrentVideo);
+    vdoSelect += '<a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>';
+    vdoSelect += '<a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>';
+
+    vdoSelect += '</div ></div >';
+    document.querySelector("#videos").innerHTML += vdoSelect;
+
+  }
+</script>
+
+</html>

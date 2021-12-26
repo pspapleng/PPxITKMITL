@@ -1,0 +1,290 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="movie.css">
+  <title>Movies | 20th Century Studios</title>
+</head>
+
+<body>
+
+  <!----------------------------Navigator-------------------->
+  <nav class="navbar navbar-expand sticky-top" style="background-color: #000000;">
+    <a class="dex mll mt-1 mb-1" onclick="window.location.href='index.html'">
+      <img src="logo_20.svg" style="width: 65%;" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <strong class="navbar-toggler-icon"></strong>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" onclick="window.location.href='index.html'">
+          <a id="home" class="nav-link navf"><span>Home<span class="navhome"></span></a>
+        </li>
+        <li class="nav-item " onclick="window.location.href='movie.html'">
+          <a id="home" class="nav-link navf  pl-3"><span>Movies<span class="navmov"></span></a>
+        </li>
+      </ul>
+      <div class="input-group search-field col-3 d-flex ml-auto pt-1">
+        <span class="input-group-prepend">
+          <div id="s1" class="input-group-text ">
+            <a class="pr-2" id="sch" href="#"><i class="icon fa fa-search" aria-hidden="true"></i></a>
+            <input id="s2" class="form-control" type="text" placeholder="Search" autocomplete="off" aria-label="Search"
+              autocorrect="off" disabled />
+        </span>
+      </div>
+    </div>
+    <script>
+      $(".navmov").after(function () {
+        $(".navmov").addClass('button-clicked');
+        $(".navhome").addClass('button-clicked1');
+      });
+    </script>
+
+  </nav>
+
+  <!-------------------------Navigator-------------------------->
+  <!----------------------------movies------------------------->
+  <div class="ccc">
+    <div class="row cat1">
+      <div class="col-12 head">
+        <h2 id="head">
+          <strong>
+            20th Century Studios Movies
+          </strong>
+        </h2>
+      </div>
+    </div>
+    <div class="row cat1">
+      <div class="menu col-12">
+        <ul style="list-style-type:none;">
+          <li class="category">
+            <a id="category" onclick="onclickNav(null)"><span class="aa c1">Featured</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Action')"><span class="aa c2">Action/Adventure</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Comedy')"><span class="aa c3">Comedy</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Crime')"><span class="aa c4">Crime/Mystery</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Drama')"><span class="aa c5">Drama</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Horror')"><span class="aa c6">Horror</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Romance')"><span class="aa c7">Romance</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Science Fiction')"><span class="aa c8">Science-Fiction</span></a>
+          </li>
+          <li class="category">
+            <a id="category" onclick="onclickNav('Suspense')"><span class="aa c9">Suspense/Thriller</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      $(".c1").click(function () {
+        $(".c1").addClass('button-clicked2');
+        $(".aa").not(".c1").removeClass('button-clicked2');
+      });
+      $(".c2").click(function () {
+        $(".c2").addClass('button-clicked2');
+        $(".aa").not(".c2").removeClass('button-clicked2');
+      });
+      $(".c3").click(function () {
+        $(".c3").addClass('button-clicked2');
+        $(".aa").not(".c3").removeClass('button-clicked2');
+      });
+      $(".c4").click(function () {
+        $(".c4").addClass('button-clicked2');
+        $(".aa").not(".c4").removeClass('button-clicked2');
+      });
+      $(".c5").click(function () {
+        $(".c5").addClass('button-clicked2');
+        $(".aa").not(".c5").removeClass('button-clicked2');
+      });
+      $(".c6").click(function () {
+        $(".c6").addClass('button-clicked2');
+        $(".aa").not(".c6").removeClass('button-clicked2');
+      });
+      $(".c7").click(function () {
+        $(".c7").addClass('button-clicked2');
+        $(".aa").not(".c7").removeClass('button-clicked2');
+      });
+      $(".c8").click(function () {
+        $(".c8").addClass('button-clicked2');
+        $(".aa").not(".c8").removeClass('button-clicked2');
+      });
+      $(".c9").click(function () {
+        $(".c9").addClass('button-clicked2');
+        $(".aa").not(".c9").removeClass('button-clicked2');
+      });
+    </script>
+    <div class="mov row cat" id="mov"></div>
+    <script>
+      var categoryType = null;
+      let requestURL = '20cenData.json';
+      let request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+          dataReportStatus(JSON.parse(request.responseText));
+        }
+      };
+      request.open("GET", requestURL, true);
+      request.send();
+
+      function onclickNav(payload) {
+        // console.log(payload);
+        categoryType = payload
+        request.onreadystatechange = function () {
+          if (request.readyState == 4 && request.status == 200) {
+            dataReportStatus(JSON.parse(request.responseText));
+          }
+        };
+
+        request.open("GET", requestURL, true);
+        request.send();
+
+      }
+      function dataReportStatus(data) {
+        var mov = "";
+        data = data.sort((a, b) => {
+          if (a.title < b.title) { return -1; }
+          if (a.title > b.title) { return 1; }
+          return 0;
+        });
+        for (let i = 0; i < data.length; i++) {
+          if (categoryType == "Action") {
+            if (data[i].tag.includes(categoryType)) {
+              mov += "<div class='cov  p-0'>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+              mov += "</div>";
+            }
+
+            else if (data[i].tag.includes("Adventure")) {
+              mov += "<div class='cov p-0'>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+              mov += "</div>";
+            }
+          }
+          else if (categoryType == "Crime") {
+            if (data[i].tag.includes(categoryType)) {
+              mov += "<div class='cov p-0'>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+              mov += "</div>";
+            }
+
+            else if (data[i].tag.includes("Mystery")) {
+              mov += "<div class='cov p-0'>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+              mov += "</div>";
+            }
+          }
+          else if (categoryType == "Suspense") {
+            if (data[i].tag.includes(categoryType)) {
+              mov += "<div class='cov p-0'>";
+              mov += "<ul id='cover' style='list-style-type:none;'>";
+              mov += "<li >";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+              mov += "</div>";
+            }
+
+            else if (data[i].tag.includes("Thriller")) {
+              mov += "<div class='cov p-0'>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+              mov += "</div>";
+            }
+          }
+          else if (data[i].tag.includes(categoryType)) {
+            mov += "<div class='cov p-0'>";
+            mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+            mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+            mov += "</div>";
+          }
+
+          else if (categoryType === null) {
+            if (data[i].feat.includes("featured")) {
+              mov += "<div class='cov p-0'>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='poster'><img class='img-fluid poster' src='" + data[i].poster_url + "';></a>" + "<br>";
+              mov += "<a href='OfficialSite.html?movie=" + data[i].title.replace(/'/g, '%27') + "' id='name' style='color:#000'>" + data[i].title + "</a>";
+              mov += "</div>";
+            }
+          }
+
+          document.getElementById("mov").innerHTML = mov;
+
+          jQuery(document).ready(function () {
+            var $this = $('.mov');
+            if ($this.find('div').length >= 20) {
+              $('.mov').append('<div class="container" ><div class="col-12 text-center" id="pum"><button id="showMore" class="showMore btn btn-gold pr-5 pl-5 pt-2 pb-2 mt-2 mb-5 ">Show more</button></div></div>');
+            }
+
+            $('.mov .cov').slice(0, 20).addClass('shown');
+            $('.mov .cov').not('.shown').hide();
+            $('.mov .showMore').on('click', function () {
+              $('.mov .cov').not('.shown').toggle(0);
+              $(this).replaceAll('<div class="container"></div>');
+            });
+          });
+        }
+      }
+
+    </script>
+  </div>
+  </div>
+  <!----------------------------movies------------------------->
+  <!-----------------------footer---------------------------------->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="row d-flex justify-content-around">
+        <div class="col-xl-12  col-sm-10 col-5 foot pt-4">
+          <a class="p-3" href="#" id="foot">Searchlight </a>
+          <a class="p-3" href="#" id="foot"> Blue Sky</a>
+          <a class="p-3" href="#" id="foot">Redeem Digital Codes</a>
+          <a class="p-3" href="#" id="foot">Contact Us </a>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-around">
+        <div class="col-xl-12 col-sm-10 col-5 foot pb-4">
+          <a class="p-3" href="#" id="foot2">Terms of Use </a>
+          <a class="p-3" href="#" id="foot2"> Privacy Policy</a>
+          <a class="p-3" href="#" id="foot2">Your California Privacy Rights</a>
+          <a class="p-3" href="#" id="foot2">Children’s Online Privacy Policy</a>
+          <a class="p-3" href="#" id="foot2">Interest-Based Ads</a>
+          <a class="p-3" href="#" id="foot2">Do Not Sell My Info </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-----------------------footer---------------------------------->
+</body>
+
+</html>

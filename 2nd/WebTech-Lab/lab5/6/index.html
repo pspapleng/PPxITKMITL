@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>lab5/6</title>
+  </head>
+  <body style="font-family: 'Prompt', sans-serif; font-size: 20px">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 pt-4">
+          <img src="Apple_Music.png" alt="" width="200px" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-secondary">
+          <hr />
+          <h4>Recently played</h4>
+        </div>
+      </div>
+      <div class="row mb-4" id="info"></div>
+    </div>
+    <script>
+      let requestURL = "music.json";
+      let request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+          dataReportStatus(JSON.parse(request.responseText));
+        }
+      };
+      request.open("GET", requestURL, true);
+      request.send();
+
+      function dataReportStatus(data) {
+        for (let i = 0; i < data.length; i++) {
+          let box = document.createElement("div");
+          box.setAttribute("class", "col-sm-2");
+          let card = document.createElement("div");
+          card.setAttribute("class", "card");
+          card.setAttribute("style", "border: none");
+          let img = document.createElement("img");
+          img.setAttribute("src", data[i].image);
+          img.setAttribute("class", "card-img-top mb-2 mt-3");
+          let songName = document.createElement("b");
+          songName.setAttribute("class", "text-secondary");
+          songName.appendChild(document.createTextNode(data[i].song));
+          let vocalist = document.createElement("h6");
+          vocalist.setAttribute("class", "mb-2 mt-1 text-muted -secondary");
+          vocalist.appendChild(document.createTextNode(data[i].artist));
+
+          box.appendChild(card);
+          box.appendChild(img);
+          box.appendChild(songName);
+          box.appendChild(vocalist);
+          document.getElementById("info").appendChild(box);
+        }
+      }
+    </script>
+  </body>
+</html>

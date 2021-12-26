@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/css/all.css" rel="stylesheet" />
+  <link href="/css/bulma.css" rel="stylesheet" />
+  <script src="/js/all.js"></script>
+  <script src="/js/vue.js"></script>
+  <title>My ToDo List</title>
+</head>
+
+<body>
+  <section id="app">
+    <div class="container">
+      <div class="row">
+        <p class="title mt-6 mb-4">My ToDo List
+          <span class="icon is-small ml-5" @click="show_add_list = !show_add_list">
+            <i class="fas fa-plus-circle"></i>
+          </span>
+        </p>
+      </div>
+      <p class="subtitle my-2">Completed: {{completed}} Tasks</p>
+      <p class="subtitle my-2">Incomplete: {{incomplete}} Tasks</p>
+      <p class="subtitle my-2">Flagged: {{flagged}} Tasks</p>
+      <div class="columns mt-2" v-for="(list, listIndex) in todo">
+        <div class="column is-8">
+          <p class="title my-4">{{list.name_list}}
+            <span class="icon is-small ml-4" @click="editList(list.id)">
+              <i class="fas fa-edit"></i>
+            </span>
+            <span class="icon is-small ml-4" @click="delList(list.id)">
+              <i class="fas fa-trash"></i>
+            </span>
+          </p>
+          <template v-for="(task, index) in sortTask(list.id)">
+            <div class="box level py-3 my-2 " v-if="task.in_list === list.id"
+              v-show="((!list.hide_completed && task.status) || !task.status) && ((!list.only_flagged && task.date === '') || task.date !== '')">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" v-model="task.status" />
+                  <span :style="task.status ? 'text-decoration: line-through' : 'text-decoration: none'">
+                    <span :style="task" v-if="task.date === ''"> {{task.task_name}}
+                      <i v-if="task.is_flagged" class="fas fa-flag ml-1"></i> <i v-else class=""></i>
+                    </span>
+                    <span :style="task" v-else> {{task.task_name}} (due by {{task.date}})
+                      <i v-if="task.is_flagged" class="fas fa-flag ml-1"></i> <i v-else class=""></i>
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <span class="level-right">
+                <span class="level-item icon is-small" @click="editTask(task.id)">
+                  <i class="fas fa-pen"></i>
+                </span>
+                <span class="level-item icon is-small" @click="delTask(task.id)">
+                  <i class="fas fa-trash-alt"></i>
+                </span>
+              </span>
+            </div>
+          </template>
+        </div>
+
+        <div class="column is-4">
+          <div class="card">
+            <header class="card-header has-background-primary">
+              <p class="card-header-title">Filters</p>
+              <p class="card-header-icon">
+                <span class="card-header-icon icon">
+                  <i class="fas fa-filter"></i>
+                </span>
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox" v-model="list.hide_completed" />
+                    Hide completed tasks
+                  </label>
+                </div>
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox" v-model="list.only_flagged">
+                    Show only due date
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <header class="card-header has-background-primary">
+              <p class="card-header-title">Sort</p>
+              <p class="card-header-icon">
+                <span class="card-header-icon icon">
+                  <i class="fas fa-sort"></i>
+                </span>
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <div class="control">
+                  <input type="radio" :name="list.name_list" :id="list.id" value="alpha_first" v-model="list.sort_by">
+                  <!-- <input type="radio" :name="list.name_list" :id="list.id" value="alpha_first" v-model="list.sort_by"
+                    @click="makeSortHash({index:listIndex,type:'alpha_first'})" @change="onChange($event)"> -->
+                  <label for="s1">Sort alphabetically</label>
+                </div>
+                <div class="control">
+                  <input type="radio" :name="list.name_list" :id="list.id" value="incomplete_first"
+                    v-model="list.sort_by">
+                  <!-- <input type="radio" :name="list.name_list" :id="list.id" value="incomplete_first"
+                    v-model="list.sort_by" @click="makeSortHash({index:listIndex,type:'incomplete_first'})"
+                    @change="onChange($event)"> -->
+                  <label for="">Sort incomplete tasks first</label>
+                </div>
+                <div class="control">
+                  <input type="radio" :name="list.name_list" :id="list.id" value="flagged_first" v-model="list.sort_by">
+                  <!-- <input type="radio" :name="list.name_list" :id="list.id" value="flagged_first" v-model="list.sort_by"
+                    @click="makeSortHash({index:listIndex,type:'flagged_first'})"> -->
+                  <label for="">Sort flagged tasks first</label>
+                </div>
+                <div class="control">
+                  <input type="radio" :name="list.name_list" :id="list.id" value="by_date" v-model="list.sort_by">
+                  <!-- <input type="radio" :name="list.name_list" :id="list.id" value="by_date" v-model="list.sort_by"
+                    @click="makeSortHash({index:listIndex,type:'by_date'})"> -->
+                  <label for="">Sort by due date (ascending)</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- add task -->
+      <div class="row my-6">
+        <p class="title mt-6 mb-4">Add new task</p>
+        <div class="columns">
+          <div class="column is-3">
+            <input class="input" type="text" placeholder="Task Name" v-model="new_task" />
+          </div>
+          <div class="column is-2">
+            <div class="select">
+              <select v-model="new_task_list">
+                <option value="0">--please select--</option>
+                <option v-for="td in todo" :value="td.id">{{td.name_list}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="column is-2">
+            <input class="input" type="date" placeholder="Due date" v-model="new_task_date" />
+          </div>
+          <div class="column is-1 ml-4">
+            <input type="checkbox" v-model="new_task_flagged" />
+            Flag
+          </div>
+          <div class="column is-2">
+            <span class="icon is-small ml-2" style="font-size: 1.5em; color:black;" v-show="task_black">
+              <i class="fas fa-check-circle"></i>
+            </span>
+            <span class="icon is-small ml-2" style="font-size: 1.5em; color:black;" v-show="!task_black"
+              @click="task_black = !task_black; task_red = false; task_green = false">
+              <i class="fas fa-circle"></i>
+            </span>
+            <span class="icon is-small ml-5" style="font-size: 1.5em; color:red;" v-show="task_red">
+              <i class="fas fa-check-circle"></i>
+            </span>
+            <span class="icon is-small ml-5" style="font-size: 1.5em; color:red;" v-show="!task_red"
+              @click="task_red = !task_red; task_black = false; task_green = false">
+              <i class="fas fa-circle"></i>
+            </span>
+            <span class="icon is-small ml-5" style="font-size: 1.5em; color:green;" v-show="task_green">
+              <i class="fas fa-check-circle"></i>
+            </span>
+            <span class="icon is-small ml-5" style="font-size: 1.5em; color:green;" v-show="!task_green"
+              @click="task_green = !task_green; task_red = false; task_black = false">
+              <i class="fas fa-circle"></i>
+            </span>
+          </div>
+          <div class="column is-2">
+            <p class="control">
+              <a class="button is-primary" @click="addTask">Add New Task</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- add todo list -->
+      <div class="modal" :class="{'is-active':show_add_list}">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">New list</p>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+            <input class="input" type="text" placeholder="List Name" v-model="name_list" />
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" @click="addList">Save</button>
+            <button class="button" @click="show_add_list = !show_add_list">Cancel</button>
+          </footer>
+        </div>
+      </div>
+
+      <!-- edit list -->
+      <div class="modal" :class="{'is-active':show_edit_list}">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Edit List</p>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+            <input class="input" type="text" placeholder="List Name" v-model="edit_name_list" />
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" @click="saveList(edit_list_id)">Save</button>
+            <button class="button" @click="show_edit_list = !show_edit_list">Cancel</button>
+          </footer>
+        </div>
+      </div>
+
+      <!-- comfirm del list -->
+      <div class="modal" :class="{'is-active':show_del_list}">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Delete List</p>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+            <p>Are you sure that you want to delete "{{del_name_list}}" list ?</p>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" @click="confirmDel(del_list_id)">Confirm</button>
+            <button class="button" @click="show_del_list = !show_del_list">Cancel</button>
+          </footer>
+        </div>
+      </div>
+
+      <!-- edit task -->
+      <div class="modal" :class="{'is-active':show_edit_task}">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Edit Task</p>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+            <div class="columns">
+              <div class="column is-7">
+                <input class="input" type="text" placeholder="Task Name" v-model="edit_task_name" />
+              </div>
+              <div class="column is-4 ml-5">
+                <div class="select">
+                  <select v-model="edit_task_list">
+                    <option value="0">--please select--</option>
+                    <option v-for="td in todo" :value="td.id">{{td.name_list}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-6">
+                <input class="input" type="date" placeholder="Due date" v-model="edit_task_date" />
+              </div>
+              <div class="column is-2 ml-4">
+                <input type="checkbox" v-model="edit_task_flagged" />
+                Flag
+              </div>
+              <div class="column is-3">
+                <span class="icon is-small" style="font-size: 1.5em; color:black;" v-show="task_black">
+                  <i class="fas fa-check-circle"></i>
+                </span>
+                <span class="icon is-small" style="font-size: 1.5em; color:black;" v-show="!task_black"
+                  @click="task_black = !task_black; task_red = false; task_green = false">
+                  <i class="fas fa-circle"></i>
+                </span>
+                <span class="icon is-small ml-5" style="font-size: 1.5em; color:red;" v-show="task_red">
+                  <i class="fas fa-check-circle"></i>
+                </span>
+                <span class="icon is-small ml-5" style="font-size: 1.5em; color:red;" v-show="!task_red"
+                  @click="task_red = !task_red; task_black = false; task_green = false">
+                  <i class="fas fa-circle"></i>
+                </span>
+                <span class="icon is-small ml-5" style="font-size: 1.5em; color:green;" v-show="task_green">
+                  <i class="fas fa-check-circle"></i>
+                </span>
+                <span class="icon is-small ml-5" style="font-size: 1.5em; color:green;" v-show="!task_green"
+                  @click="task_green = !task_green; task_red = false; task_black = false">
+                  <i class="fas fa-circle"></i>
+                </span>
+              </div>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" @click="saveTask(edit_task_id)">Save</button>
+            <button class="button" @click="cancel">Cancel</button>
+          </footer>
+        </div>
+      </div>
+
+  </section>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        todo: [{
+          id: 1,
+          name_list: "list1",
+          hide_completed: false,
+          only_flagged: false,
+          sort_by: 'alpha_first'
+        }, {
+          id: 2,
+          name_list: "list2",
+          hide_completed: false,
+          only_flagged: false,
+          sort_by: 'alpha_first'
+        }],
+        tasks: [{
+          id: 1,
+          task_name: "task1",
+          status: false,
+          is_flagged: false,
+          date: "",
+          color: "black",
+          in_list: 1
+        }, {
+          id: 2,
+          task_name: "task3",
+          status: false,
+          is_flagged: false,
+          date: "",
+          color: "black",
+          in_list: 1
+        }, {
+          id: 3,
+          task_name: "task2",
+          status: false,
+          is_flagged: false,
+          date: "",
+          color: "black",
+          in_list: 2
+        }],
+        name_list: "",
+        edit_name_list: "",
+        idList: 2,
+        idTask: 3,
+        show_add_list: false,
+        show_edit_list: false,
+        show_del_list: false,
+        edit_list_id: 0,
+        del_name_list: "",
+        del_list_id: 0,
+        new_task: "",
+        new_task_list: "0",
+        new_task_date: "",
+        new_task_flagged: false,
+        task_black: true,
+        task_red: false,
+        task_green: false,
+        show_add_task: false,
+        show_edit_task: false,
+        edit_task_id: 0,
+        edit_task_name: "",
+        edit_task_list: "0",
+        edit_task_date: "",
+        edit_task_flagged: false,
+        sort_by: "alpha_first"
+      },
+      computed: {
+        completed() {
+          let arr_com = this.tasks.filter(e => e.status === true)
+          return arr_com.length
+        },
+        incomplete() {
+          let arr_in = this.tasks.filter(e => e.status === false)
+          return arr_in.length
+        },
+        flagged() {
+          let arr_in = this.tasks.filter(e => e.is_flagged === true)
+          return arr_in.length
+        }
+      },
+      methods: {
+        addList() {
+          console.log("show add list!")
+          if (this.name_list !== "") {
+            this.idList++
+            this.todo.push({
+              id: this.idList,
+              name_list: this.name_list,
+              hide_completed: false,
+              only_flagged: false,
+              sort_by: 'alpha_first'
+            })
+            this.name_list = "";
+            this.show_add_list = !this.show_add_list
+          } else { }
+        },
+        delList(id) {
+          this.show_del_list = !this.show_del_list
+          let edit_list = this.todo.filter(e => e.id === id)
+          this.del_name_list = edit_list[0].name_list
+          this.del_list_id = id
+        },
+        confirmDel(id) {
+          let del_list = this.todo.filter(e => e.id === id)
+          let new_task = this.tasks.filter(e => e.in_list !== del_list[0].id)
+          this.tasks = new_task
+          this.todo.splice(this.todo.indexOf(del_list[0]), del_list.length)
+          this.show_del_list = !this.show_del_list
+        },
+        editList(id) {
+          this.show_edit_list = !this.show_edit_list
+          console.log("edit id : " + id)
+          let edit_list = this.todo.filter(e => e.id === id)
+          this.edit_name_list = edit_list[0].name_list
+          this.edit_list_id = edit_list[0].id
+          console.log(this.edit_list_id)
+        },
+        saveList(id) {
+          console.log(id)
+          if (this.edit_name_list !== "") {
+            let edit_list = this.todo.filter(e => e.id === id)
+            edit_list[0].name_list = this.edit_name_list
+            this.show_edit_list = !this.show_edit_list
+            console.log("edit!")
+          } else { }
+        },
+        addTask() {
+          if (this.new_task !== "" && this.new_task_list !== "0") {
+            this.idTask++
+            if (this.task_black === true) {
+              this.tasks.push({
+                id: this.idTask,
+                task_name: this.new_task,
+                status: false,
+                is_flagged: this.new_task_flagged,
+                date: this.new_task_date,
+                color: "black",
+                in_list: this.new_task_list
+              })
+            } else if (this.task_red === true) {
+              this.tasks.push({
+                id: this.idTask,
+                task_name: this.new_task,
+                status: false,
+                is_flagged: this.new_task_flagged,
+                date: this.new_task_date,
+                color: "red",
+                in_list: this.new_task_list
+              })
+            } else if (this.task_green === true) {
+              this.tasks.push({
+                id: this.idTask,
+                task_name: this.new_task,
+                status: false,
+                is_flagged: this.new_task_flagged,
+                date: this.new_task_date,
+                color: "green",
+                in_list: this.new_task_list
+              })
+            }
+            this.new_task = "";
+            this.new_task_list = "0";
+            this.new_task_flagged = false;
+            this.new_task_date = "";
+            this.task_black = true;
+            this.task_red = this.task_green = false;
+            console.log("add!")
+          } else {
+            console.log("blank!")
+          }
+        },
+        editTask(id) {
+          this.show_edit_task = !this.show_edit_task
+          let edit_task = this.tasks.filter(e => e.id === id)
+          this.edit_task_name = edit_task[0].task_name
+          this.edit_task_list = edit_task[0].in_list
+          this.edit_task_date = edit_task[0].date
+          this.edit_task_flagged = edit_task[0].is_flagged
+          if (edit_task[0].color === "black") {
+            this.task_black = true;
+            this.task_red = this.task_green = false;
+          } else if (edit_task[0].color === "red") {
+            this.task_red = true;
+            this.task_black = this.task_green = false;
+          } else if (edit_task[0].color === "green") {
+            this.task_green = true;
+            this.task_black = this.task_red = false;
+          }
+          this.edit_task_id = edit_task[0].id
+        },
+        saveTask(id) {
+          if (this.edit_task_name !== "" && this.edit_task_list !== "0") {
+            let edit_task = this.tasks.filter(e => e.id === id)
+            edit_task[0].task_name = this.edit_task_name
+            edit_task[0].in_list = this.edit_task_list
+            edit_task[0].date = this.edit_task_date
+            edit_task[0].is_flagged = this.edit_task_flagged
+            if (this.task_black === true) {
+              edit_task[0].color = "black"
+            } else if (this.task_red === true) {
+              edit_task[0].color = "red"
+            } else if (this.task_green === true) {
+              edit_task[0].color = "green"
+            }
+
+            this.edit_task_name = "";
+            this.edit_task_list = "0";
+            this.edit_task_flagged = false;
+            this.edit_task_date = "";
+            this.task_black = true;
+            this.task_red = this.task_green = false;
+            console.log("edit!")
+            this.show_edit_task = !this.show_edit_task
+          } else {
+            console.log("blank!")
+          }
+        },
+        cancel() {
+          this.edit_task_name = "";
+          this.edit_task_list = "0";
+          this.edit_task_flagged = false;
+          this.edit_task_date = "";
+          this.task_black = true;
+          this.task_red = this.task_green = false;
+          console.log("cancel!")
+          this.show_edit_task = !this.show_edit_task
+        },
+        delTask(id) {
+          let new_task = this.tasks.filter(e => e.id !== id)
+          this.tasks = new_task
+        },
+        sortTask(id) {
+          // let sortList = this.todo.filter(e => e.id === id)
+          // let sortTask = this.tasks.filter(e => e.in_list === id)
+          // let sortTarget = this.sortList.filter(e => e.id === sortTask.in_list)
+          // console.log(sortTarget)
+          
+          // defalt sort alpha
+          return this.tasks.sort((a, b) => {
+            if (a.task_name < b.task_name) { return -1; }
+            if (a.task_name > b.task_name) { return 1; }
+          })
+        },
+      }
+
+      // if (this.todo[i].sort_by === 'alpha_first') {
+      //   sortTarget.sort((a, b) => {
+      //     if (a.task_name < b.task_name) { return -1; }
+      //     if (a.task_name > b.task_name) { return 1; }
+      //     return 0;
+      //   })
+      // }
+      // if (this.todo[i].sort_by === 'incomplete_first') {
+      //   sortTarget.sort((a, b) => a.status - b.status)
+      // }
+      // if (this.todo[i].sort_by === 'flagged_first') {
+      //   sortTarget.sort((b, a) => a.is_flagged - b.is_flagged)
+      // }
+      // if (this.todo[i].sort_by === 'by_date') {
+      //   sortTarget.sort((a, b) =>
+      //     new Date(a.date).getTime() - new Date(b.date).getTime())
+      // }
+      // // merge task
+      // this.tasks = [...sortTarget, ...nonTarget]
+      //     }
+      //   },
+      // makeSortHash({ index, type }) {
+      //   console.log({ index, type });
+      //   const sortTarget = this.tasks.filter(e => e.in_list === index + 1)
+      //   const nonTarget = this.tasks.filter(e => e.in_list !== index + 1)
+      //   console.log(sortTarget);
+      //   if (type === 'alpha_first') {
+      //     sortTarget.sort((a, b) => {
+      //       if (a.task_name < b.task_name) { return -1; }
+      //       if (a.task_name > b.task_name) { return 1; }
+      //       return 0;
+      //     })
+      //   }
+      //   if (type === 'incomplete_first') {
+      //     sortTarget.sort((a, b) => a.status - b.status)
+      //   }
+      //   if (type === 'flagged_first') {
+      //     sortTarget.sort((b, a) => a.is_flagged - b.is_flagged)
+      //   }
+      //   if (type === 'by_date') {
+      //     sortTarget.sort((a, b) =>
+      //       new Date(a.date).getTime() - new Date(b.date).getTime())
+      //   }
+      //   // merge task
+      //   this.tasks = [...sortTarget, ...nonTarget]
+
+      // },
+      // onChange(event) {
+      //   console.log(event)
+      //   let optionText = event.target.value;
+      //   let optionId = Number(event.target.id)
+      //   console.log(optionText);
+      //   console.log(optionId);
+
+      //   const sortTarget = this.tasks.filter(e => e.in_list === this.todo.optionId)
+      //   const nonTarget = this.tasks.filter(e => e.in_list !== this.todo.optionId)
+      //   console.log(sortTarget);
+      //   if (optionText === 'alpha_first') {
+      //     sortTarget.sort((a, b) => {
+      //       if (a.task_name < b.task_name) { return -1; }
+      //       if (a.task_name > b.task_name) { return 1; }
+      //       return 0;
+      //     })
+      //   }
+      //   if (optionText === 'incomplete_first') {
+      //     sortTarget.sort((a, b) => a.status - b.status)
+      //   }
+      //   if (optionText === 'flagged_first') {
+      //     sortTarget.sort((b, a) => a.is_flagged - b.is_flagged)
+      //   }
+      //   if (optionText === 'by_date') {
+      //     sortTarget.sort((a, b) =>
+      //       new Date(a.date).getTime() - new Date(b.date).getTime())
+      //   }
+      //   // merge task
+      //   this.tasks = [...sortTarget, ...nonTarget]
+      // }
+    });
+  </script>
+</body>
+
+</html>

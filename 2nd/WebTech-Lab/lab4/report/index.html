@@ -1,0 +1,327 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" type="text/javascript"></script>
+    <title>BULMA</title>
+    <link rel="icon" href="tranicon.svg" type="image/icon type" />
+  </head>
+  <body onload="loading()">
+    <a
+      href="javascript:void(0);"
+      id="scroll"
+      title="backtotop"
+      style="display: none"
+      >Top<span></span
+    ></a>
+    <div id="loader"></div>
+    <div class="bg" id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#whatis">คืออะไร</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#howto">วิธีติดตั้ง</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#info">ทำอะไรได้บ้าง</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#ex">ตัวอย่างเว็บที่ใช้งาน</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#end">อ้างอิง</a>
+            </li>
+          </ul>
+        </div>
+        <a class="navbar-brand" href="#">
+          <img src="tranicon.svg" width="40" height="40" alt="" />
+        </a>
+      </nav>
+      <div class="row intro">
+        <div class="container-fluid text-center">
+          <h1 id="intro-name">BULMA</h1>
+          <p id="intro-des">ผู้ช่วยตัวจิ๋วแต่แจ๋ว ที่นักทำเว็บทุกคนควรรู้ !</p>
+        </div>
+      </div>
+      <div class="container-fluid" id="whatis">
+        <div class="row whatis">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row" id="mean-head">Bulma คืออะไร?</div>
+              <div class="row" id="mean-des">
+                Bulma คือ CSS framework ที่ถูกจับมัดรวมกันมาให้เราใช้งาน
+                หมายความว่าหากคุณมีเว็บไซต์ของเดิมอยู่แล้ว คุณสามารถนำเจ้า Bulma
+                ไปใช้ได้เลย โดย Bulma จะกระทบแค่ส่วนของหน้าตาเว็บเท่านั้น
+                ไม่กระทบส่วน logic เพราะตัว Bulma CSS Framework เป็นแค่ css
+                ที่ไม่มี javascrip รวมมาให้ทำให้มันมีขนาดที่เล็ก
+                ซึ่งเหมาะกับคนที่ต้องการเขียน javascript เอง
+              </div>
+              <div class="row d-flex justify-content-around text-center pt-5">
+                <div class="col-sm-3">
+                  <div
+                    class="row rounded border text-center p-2"
+                    style="background-color: #f5f5f5"
+                  >
+                    <div class="d-block">
+                      <div class="d-block">
+                        <img src="responsive.png" alt="" height="100" />
+                      </div>
+                      <div class="d-block">
+                        <div class="h6">100% responsive</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div
+                    class="row rounded border text-center p-2"
+                    style="background-color: #f5f5f5"
+                  >
+                    <div class="d-block">
+                      <div class="d-block">
+                        <img src="flexbox.svg" alt="" height="100" />
+                      </div>
+                      <div class="d-block">
+                        <div class="h6">BuiltWith Flexbox</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div
+                    class="row rounded border text-center p-2"
+                    style="background-color: #f5f5f5"
+                  >
+                    <div class="d-block">
+                      <div class="d-block">
+                        <img src="github.png" alt="" height="75" />
+                      </div>
+                      <div class="d-block">
+                        <div class="h6 pt-2">FREE Opensource on Github</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6" id="vdo">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe
+                  class="embed-responsive-item"
+                  src="https://player.vimeo.com/video/237608586?color=00d1b2"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="howto">
+        <div class="row howto">
+          <div class="col-sm-5">
+            <div class="h2 pt-5">วิธีติดตั้งมี 3 แบบ</div>
+            <div class="row d-inline">
+              <div class="h5 p-2">1. ผ่าน NPM (แนะนำวิธีนี้)</div>
+              <div
+                class="rounded border pl-5 pt-2 pb-2 text-left"
+                style="font-style: italic"
+              >
+                npm install bulma
+              </div>
+            </div>
+            <div class="row d-inline">
+              <div class="h5 p-2">2. ผ่าน CDN</div>
+              <div class="rounded border pl-5 pt-2 pb-2 text-left">
+                <a
+                  href="https://cdnjs.com/libraries/bulma"
+                  style="color: #f5f5f5"
+                >
+                  https://cdnjs.com/libraries/bulma
+                </a>
+              </div>
+            </div>
+            <div class="row d-inline">
+              <div class="h5 p-2">3. ดาวน์โหลดไปติดตั้งแอง</div>
+              <div class="rounded border pl-5 pt-2 pb-2 text-left">
+                <a
+                  href="https://github.com/jgthms/bulma/tree/master/css"
+                  style="color: #f5f5f5"
+                >
+                  https://github.com/jgthms/bulma/tree/master/css
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <div class="h4 pt-5">
+              โดย Bulma จะรองรับการย่อ/ขยายหน้าจอได้ 4 แบบคือ
+            </div>
+            <ul class="h5 pt-3 pb-3">
+              <li>mobile จะมีขนาดถึง 768px</li>
+              <li>tablet จะเริ่มที่ขนาด 769px</li>
+              <li>desktop จะเริ่มที่ขนาด 769px</li>
+              <li>widescreen จะเริ่มที่ขนาด 1180px</li>
+            </ul>
+            <img src="allresponsive.png" alt="" height="55%" class="pl-3" />
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="info">
+        <div class="row info">
+          <div class="row d-inline-block p-2">
+            <div class="h2 p-3">กริดมหัศจรรย์ (ยืดหดได้)</div>
+            <img src="grid.png" alt="" width="100%" />
+            <div class="h4 pt-3">
+              <ul>
+                <li>
+                  ความสามารถหนึ่งของ Flexbox คือ
+                  มันสามารถยืดหดตามพื้นที่ที่มีได้ ไม่ต้องมานั่งกำหนด class แบบ
+                  .col-md-6 เหมือนใน Bootstrap / Foundation แบบเก่า ๆ
+                  (หรือจะกำหนดมันก็ Fix ความกว้างให้ได้)
+                </li>
+              </ul>
+            </div>
+            <div class="h2 p-3">
+              คอลัมน์สูงเท่ากันอัตโนมัติ | ข้อมูลจัดกลางอัตโนมัติ |
+              กล่องเต็มจออัตโนมัติ
+            </div>
+            <img src="colum.png" alt="" width="100%" />
+            <div class="h4 pt-3">
+              <ul>
+                <li class="pt-2">
+                  หลายคนต้องเคยเจอปัญหาแบบ “ทำยังไงให้คอลัมน์สูงเท่ากัน”
+                  โดยปกติก็จะแก้กันด้วย JavaScript ..แต่ Bulma
+                  มีฟีเจอร์นี้มาให้เลย !
+                </li>
+                <li class="pt-2">
+                  เรื่องของการจัดกลาง “ถ้าจัดกลางในแนวตั้งทำยังไง” Bulma ใช้
+                  Flexbox ก็แก้ปัญหานี้ได้โดยใส่แค่คลาส is-medium
+                </li>
+                <li class="pt-2">
+                  “ทำยังไงให้กล่องสูงเต็มจอ” ซึ่งถ้าเอาแบบชัวร์ ๆ ที่เราทำปกติ
+                  คือ ใช้ JavaScript คำนวณความสูงให้ แต่เราแค่ใช้ CSS3 height:
+                  100vh; บรรทัดเดียวจบ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="ex">
+        <div class="row ex">
+          <div class="row pt-5">
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  class="card-img-top p-1"
+                  src="web1.png"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <a class="card-text" href="https://www.formalfounder.com/">
+                    formalfounder
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 pt-5">
+              <div class="card">
+                <img
+                  class="card-img-top p-1"
+                  src="web2.png"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <a class="card-text" href="https://runlet.app/"> Runlet </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  class="card-img-top p-1"
+                  src="web3.png"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <a
+                    class="card-text"
+                    href="https://alt-romes.github.io/romes/"
+                  >
+                    romes
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pl-5">
+            <div class="h4 pt-3">
+              ⚡ ตัวอย่างเพิ่มเติม
+              <a href="https://bulma.io/expo/" style="color: #eaf2f3">
+                #builtwithbulma</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="end">
+        <div class="end p-5">
+          <div class="h1" style="color: #4289a7; padding-top: 10%">
+            - Reference -
+          </div>
+          <div class="h5 pt-3">
+            official website |
+            <a href="https://bulma.io/" style="color: #4289a7">
+              https://bulma.io/</a
+            >
+          </div>
+          <div class="h5 pt-3">
+            [Bulma] css framework ที่จิ๋วแต่แจ่มมาก |
+            <a
+              href="https://tonkunglya.wordpress.com/2016/10/31/bulma-css-framework-%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%88%E0%B8%B4%E0%B9%8B%E0%B8%A7%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%81%E0%B8%88%E0%B9%88%E0%B8%A1%E0%B8%A1%E0%B8%B2%E0%B8%81/"
+              style="color: #4289a7"
+            >
+              https://tonkunglya.wordpress.com/2016/10/31/bulma-css-framework</a
+            >
+          </div>
+          <div class="h5 pt-3">
+            [CSS Framework] Bulma : เบื่อหน้า Bootstrap แล้วต้องลองตัวนี้ |
+            <a
+              href="https://www.designil.com/bulma-css-framework.html"
+              style="color: #4289a7"
+            >
+              https://www.designil.com/bulma-css-framework.html</a
+            >
+          </div>
+          <div class="h5 pt-3">
+            Bulma ผู้ช่วยจิ๋วแต่แจ๋ว ที่นักทำเว็บทุกคนควรรู้ |
+            <a
+              href="https://cities.trueid.net/bangkok/bulma-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%8A%E0%B9%88%E0%B8%A7%E0%B8%A2%E0%B8%88%E0%B8%B4%E0%B9%8B%E0%B8%A7%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%81%E0%B8%88%E0%B9%8B%E0%B8%A7-%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B8%97%E0%B8%B3%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%84%E0%B8%99%E0%B8%84%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%B9%E0%B9%89-trueidintrend_23615"
+              style="color: #4289a7"
+            >
+              https://cities.trueid.net/bangkok/bulma</a
+            >
+          </div>
+        </div>
+      </div>
+      <footer class="footer container-fluid text-center fixed-bottom">
+        <p id="me">© 2020 Copyright | นางสาวชญานิน อินทร์สุข 62070039</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function cal() {
+        var v1 = parseInt(document.getElementById("v1").value);
+        var v2 = parseInt(document.getElementById("v2").value);
+        if (isNaN(v1) || isNaN(v2)) {
+          alert("number must be filled out");
+        } else {
+          document.getElementById("ans").innerHTML = "Result : " + (v1 + v2);
+
+          var newp = document.createElement("p");
+          newp.innerHTML = "" + v1 + " + " + v2 + " = " + (v1 + v2);
+          document.getElementById("box").appendChild(newp);
+        }
+      }
+    </script>
+    <title>lab4/2</title>
+  </head>
+  <body id="box">
+    <p>Value1: <input type="text" id="v1" /></p>
+    <p>Value2: <input type="text" id="v2" /></p>
+    <br />
+    <button type="button" onclick="cal()">calculate</button>
+    <p id="ans"></p>
+  </body>
+</html>

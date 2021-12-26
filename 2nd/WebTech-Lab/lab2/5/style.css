@@ -1,0 +1,27 @@
+body {
+  font-family: "Mitr", sans-serif;
+  display: block;
+}
+.title {
+  height: 25%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  border-collapse: collapse;
+}
+th,
+td {
+  width: 10%;
+  height: 10%;
+  border: 1px solid silver;
+  text-align: center;
+}
+.not {
+  color: tomato;
+}

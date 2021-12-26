@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <title>lab7/3</title>
+    
+  </head>
+
+  <body class="container">
+    <div class="row justify-content-center">
+    <div class="p-3 col-12">
+    <form id="show" action="submit.php" method="post">
+        <label>หมายเลขบัตรประชาชน:</label>
+        <input class="form-control" type="text" id="numid" name="numid" placeholder="หมายเลขบัตรประชาชน"/></input>
+        <label for='FirstName'>ชื่อ:</label>
+        <input class="form-control" type="text" id="fname" name="fname" placeholder="ชื่อ" /></input>
+        <label for='LastName'>นามสกุล:</label>
+        <input class="form-control" type="text" id="lname" name="lname" placeholder="นามสกุล" /></input>
+        <label>ที่อยู่:</label>
+        <input class="form-control" id="address" name="address" placeholder="ที่อยู่"></input>
+        <label>อำเภอ/เขต:</label>
+        <input class="form-control" id="add" name="add" placeholder="อำเภอ"></input>
+        <label>จังหวัด:</label>
+        <input class="form-control" id="dress" name="dress" placeholder="จังหวัด"></input>
+        <label>รหัสไปรษณีย์:</label>
+        <input class="form-control" id="postnum" name="postnum" placeholder="รหัสไปรษณีย์"></input>
+        <label>เบอร์โทร:</label>
+        <input class="form-control" id="tel" name="tel" placeholder="เบอร์โทร"></input>
+        <div class="text-center">
+        <input class="btn btn-dark p-1 m-3 " onsubmit="sub()" type="submit" id="submit" value="Submit"></div>
+        </form>
+    </div>
+</div>
+    
+</body>
+</html>
